@@ -16,7 +16,7 @@ use yii\web\AssetBundle;
 
 class FullscreenBackgroundAsset extends AssetBundle{
 
-	public $sourcePath = '@xui/static';
+	public $sourcePath = '@yii/xui/static';
 
 	public $css = [
 		'css/FullscreenBackground.css',
