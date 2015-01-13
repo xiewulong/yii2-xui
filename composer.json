@@ -1,7 +1,7 @@
 {
 	"name": "xiewulong/yii2-xui",
 	"description": "UI widgets and assets of yii2 extension",
-	"keywords": ["yii2", "diankego", "md", "sms"],
+	"keywords": ["yii2", "diankego", "widgets", "extension", "ui"],
 	"type": "yii2-extension",
 	"license": "MIT",
 	"support": {
