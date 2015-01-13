@@ -1,0 +1,24 @@
+{
+	"name": "xiewulong/yii2-xui",
+	"description": "UI widgets and assets of yii2 extension",
+	"keywords": ["yii2", "diankego", "md", "sms"],
+	"type": "yii2-extension",
+	"license": "MIT",
+	"support": {
+		"issues": "https://github.com/xiewulong/yii2-xui/issues",
+		"wiki": "https://github.com/xiewulong/yii2-xui/wiki",
+		"source": "https://github.com/xiewulong/yii2-xui"
+	},
+	"authors": [
+		{
+			"name": "xiewulong",
+			"email": "xiewulong@vip.qq.com"
+		}
+    ],
+    "require": {
+        "yiisoft/yii2": "*",
+    },
+	"autoload": {
+		"psr-4": {"yii\\xui\\": ""}
+	}
+}
