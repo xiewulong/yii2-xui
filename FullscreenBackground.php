@@ -17,7 +17,7 @@ use yii\helpers\Html;
 
 class FullscreenBackground extends Widget{
 
-	public $class;
+	public $addClass;
 
 	public $path;
 
@@ -31,7 +31,7 @@ class FullscreenBackground extends Widget{
 
 	public function run(){
 		return Html::tag('div', '', [
-			'class' => 'x-fullscreen-bg J-x-fullscreen-bg ' . $this->class,
+			'class' => 'x-fullscreen-bg J-x-fullscreen-bg ' . $this->addClass,
 			'data-path' => $this->path,
 			'data-images' => implode('|', $this->images),
 		]);
