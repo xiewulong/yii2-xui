@@ -26,4 +26,8 @@ class FullscreenBackgroundAsset extends AssetBundle{
 		'js/FullscreenBackground.js',
 	];
 
+	public $depends = [
+		'yii\web\JqueryAsset',
+	];
+
 }
