@@ -42,6 +42,6 @@
 	}
 
 	function _src(name){
-		return path + '/' + name;
+		return (path ? path + '/' : '') + name;
 	}
 })(window);
