@@ -25,7 +25,7 @@ class Datetimepicker extends Widget{
 
 	public $advanced = false;
 
-	public $format = 'yyyy-mm-dd hh:ii';
+	public $format = 'yyyy-mm-dd hh:ii:ss';
 
 	public $todayHighlight = 1;
 
