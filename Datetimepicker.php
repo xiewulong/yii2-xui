@@ -21,6 +21,8 @@ class Datetimepicker extends Widget{
 
 	public $value;
 
+	public $placeholder;
+
 	public $addClass;
 
 	public $advanced = false;
@@ -68,6 +70,7 @@ class Datetimepicker extends Widget{
 			$html = Html::input('text', $this->name, $this->value, [
 				'id' => $id,
 				'class' => 'form-control',
+				'placeholder' => $this->placeholder,
 			]);
 		}
 
@@ -75,7 +78,7 @@ class Datetimepicker extends Widget{
 	}
 
 	private function getAdvancedContent(){
-		return Html::tag('div', Html::tag('i', '', ['class' => 'glyphicon glyphicon-calendar']), ['class' => 'input-group-addon']) . Html::input('text', $this->name, $this->value, ['class' => 'form-control']);
+		return Html::tag('div', Html::tag('i', '', ['class' => 'glyphicon glyphicon-calendar']), ['class' => 'input-group-addon']) . Html::input('text', $this->name, $this->value, ['class' => 'form-control', 'placeholder' => $this->placeholder]);
 	}
 
 	private function getDatetimepickerId(){
