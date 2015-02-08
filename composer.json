@@ -19,6 +19,7 @@
         "yiisoft/yii2": "*",
         "yiisoft/yii2-bootstrap": "*",
         "bower-asset/smalot-bootstrap-datetimepicker": "*",
+		"bower-asset/requirejs": "*",
         "xiewulong/jqueryx": "*"
     },
 	"autoload": {
