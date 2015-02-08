@@ -22,8 +22,8 @@ class WwwAsset extends AssetBundle{
 		'css/public.css',
 	];
 
-	public $js = [
-		'js/jquery.min.js',
+	public $depends = [
+		'xiewulong/JqueryAsset',
 	];
 
 }
