@@ -14,12 +14,16 @@ namespace yii\xui;
 use Yii;
 use yii\web\AssetBundle;
 
-class JqueryAsset extends AssetBundle{
+class WwwAsset extends AssetBundle{
 
-	public $sourcePath = '@bower/jquery/dist';
+	public $sourcePath = '@xiewulong/www/static/public';
+
+	public $css = [
+		'css/public.css',
+	];
 
 	public $js = [
-		'jquery.min.js',
+		'js/jquery.min.js',
 	];
 
 }

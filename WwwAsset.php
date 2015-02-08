@@ -1,6 +1,6 @@
 <?php
 /*!
- * xui - jqueryX Asset
+ * xui - jquery Asset
  * xiewulong <xiewulong@vip.qq.com>
  * https://github.com/xiewulong/yii2-xui
  * https://raw.githubusercontent.com/xiewulong/yii2-xui/master/LICENSE
@@ -14,16 +14,12 @@ namespace yii\xui;
 use Yii;
 use yii\web\AssetBundle;
 
-class JqueryXAsset extends AssetBundle{
+class JqueryAsset extends AssetBundle{
 
-	public $sourcePath = '@xiewulong/jqueryX/dist';
+	public $sourcePath = '@xiewulong/www/static/public';
 
 	public $js = [
-		'jquery.x.min.js',
-	];
-
-	public $depends = [
-		'yii\xui\WwwAsset',
+		'jquery.min.js',
 	];
 
 }
