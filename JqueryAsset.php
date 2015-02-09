@@ -16,10 +16,10 @@ use yii\web\AssetBundle;
 
 class JqueryAsset extends AssetBundle{
 
-	public $sourcePath = '@vendor/xiewulong/www/static/public';
+	public $sourcePath = '@vendor/xiewulong/www/static/public/js';
 
 	public $js = [
-		'js/jquery.min.js',
+		'jquery.min.js',
 	];
 
 }

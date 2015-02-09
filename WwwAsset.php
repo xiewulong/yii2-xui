@@ -16,10 +16,10 @@ use yii\web\AssetBundle;
 
 class WwwAsset extends AssetBundle{
 
-	public $sourcePath = '@vendor/xiewulong/www/static/public';
+	public $sourcePath = '@vendor/xiewulong/www/static/public/css';
 
 	public $css = [
-		'css/public.css',
+		'public.css',
 	];
 
 	public $depends = [
