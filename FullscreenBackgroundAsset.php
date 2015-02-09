@@ -27,7 +27,7 @@ class FullscreenBackgroundAsset extends AssetBundle{
 	];
 
 	public $depends = [
-		'yii\web\JqueryAsset',
+		'yii\xui\JqueryAsset',
 	];
 
 }
