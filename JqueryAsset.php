@@ -16,7 +16,7 @@ use yii\web\AssetBundle;
 
 class JqueryAsset extends AssetBundle{
 
-	public $sourcePath = '@xiewulong/www/static/public';
+	public $sourcePath = '@vendor/xiewulong/www/static/public';
 
 	public $js = [
 		'js/jquery.min.js',

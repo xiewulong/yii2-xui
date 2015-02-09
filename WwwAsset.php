@@ -16,7 +16,7 @@ use yii\web\AssetBundle;
 
 class WwwAsset extends AssetBundle{
 
-	public $sourcePath = '@xiewulong/www/static/public';
+	public $sourcePath = '@vendor/xiewulong/www/static/public';
 
 	public $css = [
 		'css/public.css',
