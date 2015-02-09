@@ -23,7 +23,7 @@ class WwwAsset extends AssetBundle{
 	];
 
 	public $depends = [
-		'xiewulong/JqueryXAsset',
+		'yii\xui\JqueryXAsset',
 	];
 
 }
