@@ -26,8 +26,4 @@ class TopTipsAsset extends AssetBundle{
 		'js/TopTips.js',
 	];
 
-	public $depends = [
-		'yii\xui\JqueryAsset',
-	];
-
 }

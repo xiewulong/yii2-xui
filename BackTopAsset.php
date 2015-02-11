@@ -26,8 +26,4 @@ class BackTopAsset extends AssetBundle{
 		'js/BackTop.js',
 	];
 
-	public $depends = [
-		'yii\xui\JqueryAsset',
-	];
-
 }
