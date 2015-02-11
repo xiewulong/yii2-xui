@@ -27,7 +27,7 @@ class DatetimepickerAsset extends AssetBundle{
 	];
 
 	public $depends = [
-		'yii\xui\JqueryAsset',
+		'yii\web\JqueryAsset',
 		'yii\bootstrap\BootstrapAsset',
 	];
 
