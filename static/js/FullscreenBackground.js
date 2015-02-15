@@ -5,7 +5,7 @@
  * version: 0.0.1
  */
 
-(function(window, undefined){
+(function($, undefined){
 	if(!$('.J-x-fullscreen-bg').length)return;
 
 	var $img, len,
@@ -44,4 +44,4 @@
 	function _src(name){
 		return (path ? path + '/' : '') + name;
 	}
-})(window);
+})(jQuery);

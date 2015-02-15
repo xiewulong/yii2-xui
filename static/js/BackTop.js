@@ -5,7 +5,7 @@
  * version: 0.0.1
  */
 
-(function(window, undefined){
+(function($, window, document, undefined){
 	var _backTop;
 
 	(_backTop = function(classname){
@@ -26,4 +26,4 @@
 	})('.J-x-backtop');
 
 	$.backTop = _backTop;
-})(window);
+})(jQuery, window, document);

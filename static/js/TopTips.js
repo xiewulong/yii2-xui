@@ -5,7 +5,7 @@
  * version: 0.0.1
  */
 
-(function(window, undefined){
+(function($, window, undefined){
 	var _run;
 
 	(_run = function(){
@@ -40,4 +40,4 @@
 	}
 
 	$.tips = _tips;
-})(window);
+})(jQuery, window);
