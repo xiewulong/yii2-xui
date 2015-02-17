@@ -13,7 +13,7 @@
 			$tips	= $('.J-x-tips'),
 			len		= $tips.length,
 			index	= 0,
-			delay	= 2000;
+			delay	= 1200;
 		(_show = function(i){
 			var $tip = $tips.eq(i);
 			if(!$tip)return;
