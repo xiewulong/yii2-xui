@@ -25,7 +25,11 @@ class Tinymce extends Widget{
 
 	public $id_pre = 'J-x-tinymce-';
 
-	public $plugins = 'advlist anchor autolink autoresize autosave bbcode charmap code colorpicker contextmenu directionality emoticons fullpage fullscreen hr image insertdatetime layer legacyoutput link lists media nonbreaking noneditable pagebreak paste preview print save searchreplace tabfocus table template textcolor textpattern visualblocks visualchars wordcount'; //'importcss spellchecker'
+	public $addPlugins;
+
+	public $removePlugins;
+
+	public $plugins = 'advlist anchor autolink autoresize autosave bbcode charmap code colorpicker contextmenu directionality emoticons fullscreen hr image insertdatetime layer legacyoutput link lists media nonbreaking noneditable pagebreak paste preview print save searchreplace tabfocus table template textcolor textpattern visualblocks visualchars wordcount'; //'fullpage importcss spellchecker'
 
 	public function init(){
 		parent::init();
