@@ -17,11 +17,9 @@ use yii\helpers\Html;
 
 class Tinymce extends Widget{
 
-	public $name;
+	public $name = null;
 
 	public $value;
-
-	public $placeholder;
 
 	public $id;
 
@@ -40,7 +38,7 @@ class Tinymce extends Widget{
 	}
 
 	public function run(){
-		return Html::textarea('aaa', 'bbb', ['id' => $this->getRandomId()]);
+		return Html::textarea($this->name, $this->value, ['id' => $this->getRandomId()]);
 	}
 
 	private function getRandomId(){
