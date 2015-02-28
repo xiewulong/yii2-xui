@@ -5,7 +5,7 @@
  * https://github.com/xiewulong/yii2-xui
  * https://raw.githubusercontent.com/xiewulong/yii2-xui/master/LICENSE
  * create: 2015/1/23
- * update: 2015/1/28
+ * update: 2015/2/28
  * version: 0.0.1
  */
 
@@ -48,7 +48,7 @@ class Datetimepicker extends Widget{
 	public function init(){
 		parent::init();
 
-		$id = $this->getDatetimepickerId();
+		$id = $this->getRandomId();
 		$view = $this->getView();
 		DatetimepickerAsset::register($view)->addLanguage($this->language);
 		$view->registerJs("$('#$id').datetimepicker({'format':'$this->format','autoclose':$this->autoclose,'todayBtn':$this->todayBtn,'minuteStep':$this->minuteStep,'pickerPosition':'$this->pickerPosition','todayHighlight':$this->todayHighlight,'language':'$this->language'});");
@@ -59,7 +59,7 @@ class Datetimepicker extends Widget{
 	}
 
 	private function getHtml(){
-		$id = $this->getDatetimepickerId();
+		$id = $this->getRandomId();
 		$html = '';
 		if($this->advanced){
 			$html = Html::tag('div', $this->getAdvancedContent(), [
@@ -81,7 +81,7 @@ class Datetimepicker extends Widget{
 		return Html::tag('div', Html::tag('i', '', ['class' => 'glyphicon glyphicon-calendar']), ['class' => 'input-group-addon']) . Html::input('text', $this->name, $this->value, ['class' => 'form-control', 'placeholder' => $this->placeholder]);
 	}
 
-	private function getDatetimepickerId(){
+	private function getRandomId(){
 		if($this->id === null){
 			$this->id = $this->id_pre . time() . mt_rand(1000, 9999);
 		}
