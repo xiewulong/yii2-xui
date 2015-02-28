@@ -1,6 +1,6 @@
 <?php
 /*!
- * xui - tinymce
+ * xui - tinymce language
  * xiewulong <xiewulong@vip.qq.com>
  * https://github.com/xiewulong/yii2-xui
  * https://raw.githubusercontent.com/xiewulong/yii2-xui/master/LICENSE
