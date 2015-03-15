@@ -44,7 +44,7 @@ class Tinymce extends Widget{
 		$view = $this->getView();
 		TinymceAsset::register($view);
 		TinymceLanguageAsset::register($view);
-		$view->registerJs("tinymce.init({selector: '#$id', plugins: '$this->plugins', font_formats: '$this->font_formats', fontsize_formats: '$this->fontsize_formats', autosave_ask_before_unload: false, preview_styles: false, toolbar: '$this->toolbar'});");
+		$view->registerJs("tinymce.init({selector:'#$id',plugins:'$this->plugins',font_formats:'$this->font_formats',fontsize_formats:'$this->fontsize_formats',autosave_ask_before_unload:false,preview_styles:false,toolbar:'$this->toolbar'});");
 	}
 
 	public function run(){

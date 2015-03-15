@@ -31,7 +31,7 @@ class Ueditor extends Widget{
 		$id = $this->getRandomId();
 		$view = $this->getView();
 		UeditorAsset::register($view);
-		$view->registerJs("UE.getEditor('$id')");
+		$view->registerJs("UEDITOR_CONFIG.emotionLocalization=true;UE.getEditor('$id');");
 	}
 
 	public function run(){
