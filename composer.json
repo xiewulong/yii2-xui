@@ -20,7 +20,8 @@
         "yiisoft/yii2-bootstrap": "*",
         "bower-asset/smalot-bootstrap-datetimepicker": "*",
 		"tinymce/tinymce": "*",
-        "xiewulong/jqueryx": "*"
+        "xiewulong/jqueryx": "*",
+        "xiewulong/yii2-fileupload": "*"
     },
 	"autoload": {
 		"psr-4": {"yii\\xui\\": ""}
