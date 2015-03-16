@@ -24,6 +24,8 @@ class Ueditor extends Widget{
 	public $id;
 
 	public $id_pre = 'J-x-ueditor-';
+	
+	public $action;
 
 	public function init(){
 		parent::init();
@@ -31,7 +33,13 @@ class Ueditor extends Widget{
 		$id = $this->getRandomId();
 		$view = $this->getView();
 		UeditorAsset::register($view);
-		$view->registerJs("UE.getEditor('$id',{emotionLocalization:true});");
+		$js = [];
+		$js[] = "UE.getEditor('$id',{emotionLocalization:true";
+		if($this->action){
+			$js[] = ",serverUrl:'$this->action'";
+		}
+		$js[] = '});';
+		$view->registerJs(implode('', $js));
 	}
 
 	public function run(){
