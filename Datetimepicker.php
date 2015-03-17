@@ -5,7 +5,7 @@
  * https://github.com/xiewulong/yii2-xui
  * https://raw.githubusercontent.com/xiewulong/yii2-xui/master/LICENSE
  * create: 2015/1/23
- * update: 2015/2/28
+ * update: 2015/3/17
  * version: 0.0.1
  */
 
@@ -64,12 +64,12 @@ class Datetimepicker extends Widget{
 		if($this->advanced){
 			$html = Html::tag('div', $this->getAdvancedContent(), [
 				'id' => $id,
-				'class' => 'input-group date',
+				'class' => 'input-group date ' . $this->addClass,
 			]);
 		}else{
 			$html = Html::input('text', $this->name, $this->value, [
 				'id' => $id,
-				'class' => 'form-control',
+				'class' => 'form-control ' . $this->addClass,
 				'placeholder' => $this->placeholder,
 			]);
 		}
