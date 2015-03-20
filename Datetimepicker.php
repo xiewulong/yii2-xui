@@ -5,7 +5,7 @@
  * https://github.com/xiewulong/yii2-xui
  * https://raw.githubusercontent.com/xiewulong/yii2-xui/master/LICENSE
  * create: 2015/1/23
- * update: 2015/3/17
+ * update: 2015/3/20
  * version: 0.0.1
  */
 
@@ -27,7 +27,13 @@ class Datetimepicker extends Widget{
 
 	public $advanced = false;
 
-	public $format = 'yyyy-mm-dd hh:ii:ss';
+	public $format = 'yyyy-mm-dd';
+
+	public $viewSelect = 'month';	//'decade', 'year', 'month', 'day', 'hour'
+
+	public $minView = 'month';	//'decade', 'year', 'month', 'day', 'hour'
+
+	public $maxView = 'decade';	//'decade', 'year', 'month', 'day', 'hour'
 
 	public $todayHighlight = 1;
 
@@ -51,7 +57,7 @@ class Datetimepicker extends Widget{
 		$id = $this->getRandomId();
 		$view = $this->getView();
 		DatetimepickerAsset::register($view)->addLanguage($this->language);
-		$view->registerJs("$('#$id').datetimepicker({'format':'$this->format','autoclose':$this->autoclose,'todayBtn':$this->todayBtn,'minuteStep':$this->minuteStep,'pickerPosition':'$this->pickerPosition','todayHighlight':$this->todayHighlight,'language':'$this->language'});");
+		$view->registerJs("$('#$id').datetimepicker({'format':'$this->format','autoclose':$this->autoclose,'todayBtn':$this->todayBtn,'minuteStep':$this->minuteStep,'pickerPosition':'$this->pickerPosition','todayHighlight':$this->todayHighlight,'language':'$this->language','viewSelect':'$this->viewSelect','minView':'$this->minView','maxView':'$this->maxView'});");
 	}
 
 	public function run(){
