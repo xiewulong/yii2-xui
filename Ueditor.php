@@ -27,6 +27,8 @@ class Ueditor extends Widget{
 	
 	public $action;
 
+	public $toolbars = "'fullscreen','source','|','undo','redo','|','bold','italic','underline','fontborder','strikethrough','superscript','subscript','removeformat','formatmatch','autotypeset','blockquote','pasteplain','|','forecolor','backcolor','insertorderedlist','insertunorderedlist','selectall','cleardoc','|','rowspacingtop','rowspacingbottom','lineheight','|','customstyle','paragraph','fontfamily','fontsize','|','directionalityltr','directionalityrtl','indent','|','justifyleft','justifycenter','justifyright','justifyjustify','|','touppercase','tolowercase','|','link','unlink','anchor','|','imagenone','imageleft','imageright','imagecenter','|','simpleupload','insertimage','emotion','insertvideo','music','map','insertframe','insertcode','pagebreak','template','background','|','horizontal','date','time','spechars','wordimage','|','inserttable','deletetable','insertparagraphbeforetable','insertrow','deleterow','insertcol','deletecol','mergecells','mergeright','mergedown','splittocells','splittorows','splittocols','charts','|','print','preview','searchreplace','help','drafts'";
+
 	public function init(){
 		parent::init();
 
@@ -37,6 +39,9 @@ class Ueditor extends Widget{
 		$js[] = "UE.getEditor('$id',{emotionLocalization:true";
 		if($this->action){
 			$js[] = ",serverUrl:'$this->action'";
+		}
+		if($this->toolbars){
+			$js[] = ",toolbars:[[$this->toolbars]]";
 		}
 		$js[] = '});';
 		$view->registerJs(implode('', $js));
