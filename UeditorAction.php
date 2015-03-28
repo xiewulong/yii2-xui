@@ -53,18 +53,13 @@ class UeditorAction extends Action{
 				$response['state'] = \Yii::t('common', 'Please upload the right file type');
 			}else{
 				$manager = \Yii::createObject(Yii::$app->components['fileupload']);
-				$ossActive = isset($manager->oss[$oss]);
 				$file = $manager->createFile(array_pop(explode('.', $_file['name'])));
 				if(move_uploaded_file($_file['tmp_name'], $file['tmp'])){
-					$url = $manager->finalFile($file, $oss);
 					$response['state'] = 'SUCCESS';
 					$response['title'] = $_file['name'];
 					$response['type'] = $_file['type'];
 					$response['size'] = $_file['size'];
-					$response['url'] = $response['original'] = $url;
-					if($ossActive){
-						unlink($file['tmp']);
-					}
+					$response['url'] = $response['original'] = $manager->finalFile($file, $oss);
 				}
 			}
 		}
