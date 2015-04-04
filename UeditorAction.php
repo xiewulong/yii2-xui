@@ -12,7 +12,7 @@ class UeditorAction extends Action{
 	private $config;
 
 	private $types = [
-		'image' => ['image/gif', 'image/jpeg', 'image/pjpeg'],
+		'image' => ['image/gif', 'image/jpeg', 'image/pjpeg', 'image/png'],
 	];
 
 	public function init(){
