@@ -26,6 +26,8 @@ class Ueditor extends Widget{
 	public $id_pre = 'J-x-ueditor-';
 	
 	public $action;
+	
+	public $var_name;
 
 	public $toolbars = "'fullscreen','source','|','undo','redo','|','bold','italic','underline','fontborder','strikethrough','superscript','subscript','removeformat','formatmatch','autotypeset','blockquote','pasteplain','|','forecolor','backcolor','insertorderedlist','insertunorderedlist','selectall','cleardoc','|','rowspacingtop','rowspacingbottom','lineheight','|','customstyle','paragraph','fontfamily','fontsize','|','directionalityltr','directionalityrtl','indent','|','justifyleft','justifycenter','justifyright','justifyjustify','|','touppercase','tolowercase','|','link','unlink','anchor','|','imagenone','imageleft','imageright','imagecenter','|','simpleupload','insertimage','emotion','insertvideo','music','map','insertframe','insertcode','pagebreak','template','background','|','horizontal','date','time','spechars','wordimage','|','inserttable','deletetable','insertparagraphbeforetable','insertrow','deleterow','insertcol','deletecol','mergecells','mergeright','mergedown','splittocells','splittorows','splittocols','charts','|','print','preview','searchreplace','help','drafts'";
 
@@ -36,6 +38,9 @@ class Ueditor extends Widget{
 		$view = $this->getView();
 		UeditorAsset::register($view);
 		$js = [];
+		if($this->var_name){
+			$js[] = "window.$this->var_name=";
+		}
 		$js[] = "UE.getEditor('$id',{emotionLocalization:true";
 		if($this->action){
 			$js[] = ",serverUrl:'$this->action'";
