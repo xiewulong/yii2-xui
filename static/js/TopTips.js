@@ -6,14 +6,17 @@
  */
 
 (function($, window, undefined){
-	var _run;
-
-	(_run = function(){
+	var _run,
+		types = {
+			success : 'x-tips-success',
+			error : 'x-tips-error'
+		};
+	(_run = function(delay){
 		var _show,
 			$tips	= $('.J-x-tips'),
 			len		= $tips.length,
 			index	= 0,
-			delay	= 1200;
+			delay	= delay || 2000;
 		(_show = function(i){
 			var $tip = $tips.eq(i);
 			if(!$tip)return;
@@ -24,20 +27,12 @@
 				});
 			});
 		})(index);
-
 	})();
-
-	function _tips(type, message, classname){
-		var type,
-			types = {
-				success : 'x-tips-success',
-				error : 'x-tips-error'
-			};
+	function _tips(type, message, classname, delay){
 		if(type = types[type]){
 			$('body').append('<div class="x-tips J-x-tips ' + type + ' ' + (classname || '') + '"><p>' + message + '</p></div>');
-			_run();
+			_run(delay);
 		}
 	}
-
 	$.tips = _tips;
 })(jQuery, window);
