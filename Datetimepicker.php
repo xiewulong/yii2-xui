@@ -5,7 +5,7 @@
  * https://github.com/xiewulong/yii2-xui
  * https://raw.githubusercontent.com/xiewulong/yii2-xui/master/LICENSE
  * create: 2015/1/23
- * update: 2015/4/7
+ * update: 2015/6/11
  * version: 0.0.1
  */
 
@@ -27,15 +27,15 @@ class Datetimepicker extends Widget{
 
 	public $advanced = false;
 
-	public $format = 'yyyy-mm-dd';
+	public $format = 'yyyy-mm-dd';	//'yyyy-mm-dd hh:ii:ss'
 
-	public $startView = 'month';	//'decade', 'year', 'month', 'day', 'hour'
+	public $startView = 2;	//0'hour', 1'day', 2'month', 3'year', 4'decade'
 
-	public $minView = 'month';	//'decade', 'year', 'month', 'day', 'hour'
+	public $minView = 2;	//0'hour', 1'day', 2'month', 3'year', 4'decade'
 
-	public $maxView = 'decade';	//'decade', 'year', 'month', 'day', 'hour'
+	public $maxView = 4;	//0'hour', 1'day', 2'month', 3'year', 4'decade'
 
-	public $viewSelect = 'month';	//'decade', 'year', 'month', 'day', 'hour'
+	public $viewSelect = 2;	//0'hour', 1'day', 2'month', 3'year', 4'decade'
 
 	public $todayHighlight = 1;
 
