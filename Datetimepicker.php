@@ -35,8 +35,6 @@ class Datetimepicker extends Widget{
 
 	public $maxView = 4;	//0'hour', 1'day', 2'month', 3'year', 4'decade'
 
-	public $viewSelect = 2;	//0'hour', 1'day', 2'month', 3'year', 4'decade'
-
 	public $todayHighlight = 1;
 
 	public $autoclose = 1;
@@ -59,7 +57,7 @@ class Datetimepicker extends Widget{
 		$id = $this->getRandomId();
 		$view = $this->getView();
 		DatetimepickerAsset::register($view)->addLanguage($this->language);
-		$view->registerJs("$('#$id').datetimepicker({'format':'$this->format','autoclose':$this->autoclose,'todayBtn':$this->todayBtn,'minuteStep':$this->minuteStep,'pickerPosition':'$this->pickerPosition','todayHighlight':$this->todayHighlight,'language':'$this->language','startView':'$this->startView','minView':'$this->minView','maxView':'$this->maxView','viewSelect':'$this->viewSelect'});");
+		$view->registerJs("$('#$id').datetimepicker({'format':'$this->format','autoclose':$this->autoclose,'todayBtn':$this->todayBtn,'minuteStep':$this->minuteStep,'pickerPosition':'$this->pickerPosition','todayHighlight':$this->todayHighlight,'language':'$this->language','startView':$this->startView,'minView':$this->minView,'maxView':$this->maxView});");
 	}
 
 	public function run(){
