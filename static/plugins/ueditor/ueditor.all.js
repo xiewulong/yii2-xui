@@ -17780,6 +17780,7 @@ UE.plugins['video'] = function (){
         return parseInt(domUtils.getComputedStyle(cell, "width"), 10);
     };
 
+
     /**
      * 获取单元格或者单元格组的“对齐”状态。 如果当前的检测对象是一个单元格组， 只有在满足所有单元格的 水平和竖直 对齐属性都相同的
      * 条件时才会返回其状态值，否则将返回null； 如果当前只检测了一个单元格， 则直接返回当前单元格的对齐状态；
@@ -18909,7 +18910,8 @@ UE.plugins['video'] = function (){
                 for (var r = 0; r < rowsNum; r++) {
                     html.push('<tr' + (r == 0 ? ' class="firstRow"':'') + '>');
                     for (var c = 0; c < colsNum; c++) {
-                        html.push('<td width="' + tdWidth + '"  vAlign="' + opt.tdvalign + '" >' + (browser.ie && browser.version < 11 ? domUtils.fillChar : '<br/>') + '</td>')
+						//k-table-demo 此处改动添加边框
+                        html.push('<td style="border:1px solid #ddd;" width="' + tdWidth + '"  vAlign="' + opt.tdvalign + '" >' + (browser.ie && browser.version < 11 ? domUtils.fillChar : '<br/>') + '</td>')
                     }
                     html.push('</tr>')
                 }
@@ -25854,6 +25856,7 @@ UE.ui = baidu.editor.ui = {};
         },
         showPopup: function (){
             // 当popup往上弹出的时候，做特殊处理
+			console.log(1);
             var rect = uiUtils.getClientRect(this.getDom());
             rect.top -= this.popup.SHADOW_RADIUS;
             rect.height += this.popup.SHADOW_RADIUS;
