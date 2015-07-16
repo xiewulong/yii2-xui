@@ -5,7 +5,7 @@
  * https://github.com/xiewulong/yii2-xui
  * https://raw.githubusercontent.com/xiewulong/yii2-xui/master/LICENSE
  * create: 2015/1/23
- * update: 2015/6/17
+ * update: 2015/7/16
  * version: 0.0.1
  */
 
@@ -51,6 +51,8 @@ class Datetimepicker extends Widget{
 
 	public $language = 'zh-CN';
 
+	public $inputId;
+
 	public function init(){
 		parent::init();
 
@@ -84,7 +86,7 @@ class Datetimepicker extends Widget{
 	}
 
 	private function getAdvancedContent(){
-		return Html::tag('div', Html::tag('i', '', ['class' => 'glyphicon glyphicon-calendar']), ['class' => 'input-group-addon']) . Html::input('text', $this->name, $this->value, ['class' => 'form-control', 'placeholder' => $this->placeholder]);
+		return Html::tag('div', Html::tag('i', '', ['class' => 'glyphicon glyphicon-calendar']), ['class' => 'input-group-addon']) . Html::input('text', $this->name, $this->value, ['class' => 'form-control', 'placeholder' => $this->placeholder, 'id' => $this->inputId]);
 	}
 
 	private function getRandomId(){
