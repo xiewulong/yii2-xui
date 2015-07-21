@@ -53,13 +53,25 @@ class Datetimepicker extends Widget{
 
 	public $inputId;
 
+	public $startDate;
+
+	public $endDate;
+
 	public function init(){
 		parent::init();
 
 		$id = $this->getRandomId();
 		$view = $this->getView();
 		DatetimepickerAsset::register($view)->addLanguage($this->language);
-		$view->registerJs("$('#$id').datetimepicker({'format':'$this->format','autoclose':$this->autoclose,'todayBtn':$this->todayBtn,'minuteStep':$this->minuteStep,'pickerPosition':'$this->pickerPosition','todayHighlight':$this->todayHighlight,'language':'$this->language','startView':$this->startView,'minView':$this->minView,'maxView':$this->maxView});");
+		$js = "$('#$id').datetimepicker({'format':'$this->format','autoclose':$this->autoclose,'todayBtn':$this->todayBtn,'minuteStep':$this->minuteStep,'pickerPosition':'$this->pickerPosition','todayHighlight':$this->todayHighlight,'language':'$this->language','startView':$this->startView,'minView':$this->minView,'maxView':$this->maxView";
+		if($this->startDate){
+			$js .= ",'startDate':$this->startDate";
+		}
+		if($this->endDate){
+			$js .= ",'endDate':$this->endDate";
+		}
+		$js .= "});";
+		$view->registerJs($js);
 	}
 
 	public function run(){
