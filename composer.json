@@ -10,20 +10,24 @@
 		"source": "https://github.com/xiewulong/yii2-xui"
 	},
 	"authors": [
-		{
-			"name": "xiewulong",
-			"email": "xiewulong@vip.qq.com"
-		}
-    ],
-    "require": {
-        "yiisoft/yii2": "*",
-        "yiisoft/yii2-bootstrap": "*",
-        "bower-asset/smalot-bootstrap-datetimepicker": "*",
+	{
+		"name": "xiewulong",
+		"email": "xiewulong@vip.qq.com"
+	}
+	],
+	"require": {
+		"yiisoft/yii2": "*",
+		"yiisoft/yii2-bootstrap": "*",
+		"bower-asset/bootstrap": "3.3.*",
+		"bower-asset/smalot-bootstrap-datetimepicker": "*",
 		"tinymce/tinymce": "*",
-        "xiewulong/jqueryx": "*",
-        "xiewulong/yii2-fileupload": "*"
-    },
+		"xiewulong/jqueryx": "*",
+		"xiewulong/yii2-fileupload": "*"
+	},
 	"autoload": {
 		"psr-4": {"yii\\xui\\": ""}
+	},
+	"extra": {
+		"asset-installer-paths": {"bower-asset-library": "vendor/bower"}
 	}
 }
