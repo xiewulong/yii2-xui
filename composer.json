@@ -18,6 +18,7 @@
 	"require": {
 		"yiisoft/yii2": "*",
 		"yiisoft/yii2-bootstrap": "*",
+		"bower-asset/jquery": "1.11.*@stable",
 		"bower-asset/bootstrap": "3.3.*",
 		"bower-asset/smalot-bootstrap-datetimepicker": "*",
 		"tinymce/tinymce": "*",
