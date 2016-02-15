@@ -54,7 +54,7 @@ class UeditorAction extends Action{
 			}else if(!empty($type) && !in_array($_file['type'], $this->types[$type])){
 				$response['state'] = \Yii::t('common', 'Please upload the right file type');
 			}else{
-				$manager = \Yii::createObject(Yii::$app->components[$this->fileupload]);
+				$manager = \Yii::createObject(\Yii::$app->components[$this->fileupload]);
 				$file = $manager->createFile(array_pop(explode('.', $_file['name'])));
 				if(move_uploaded_file($_file['tmp_name'], $file['tmp'])){
 					$response['state'] = 'SUCCESS';
