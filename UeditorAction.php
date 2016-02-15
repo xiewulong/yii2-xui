@@ -30,12 +30,12 @@ class UeditorAction extends Action{
 				return Json::encode($this->config);
 				break;
 			case 'uploadimage':
-				return $this->uploadFile();
+				return $this->saveFile();
 				break;
 		}
 	}
 
-	private function uploadFile(){
+	private function saveFile(){
 		$request = \Yii::$app->request;
 		$name = 'upfile';
 		$min = 0;
