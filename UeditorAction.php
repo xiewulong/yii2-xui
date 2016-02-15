@@ -11,6 +11,8 @@ class UeditorAction extends Action{
 
 	private $config;
 
+	public $fileupload = 'fileupload';
+
 	private $types = [
 		'image' => ['image/gif', 'image/jpeg', 'image/pjpeg', 'image/png'],
 	];
@@ -28,12 +30,12 @@ class UeditorAction extends Action{
 				return Json::encode($this->config);
 				break;
 			case 'uploadimage':
-				return $this->fileupload();
+				return $this->upload();
 				break;
 		}
 	}
 
-	private function fileupload(){
+	private function upload(){
 		$request = \Yii::$app->request;
 		$name = 'upfile';
 		$min = 0;
@@ -52,7 +54,7 @@ class UeditorAction extends Action{
 			}else if(!empty($type) && !in_array($_file['type'], $this->types[$type])){
 				$response['state'] = \Yii::t('common', 'Please upload the right file type');
 			}else{
-				$manager = \Yii::createObject(Yii::$app->components['fileupload']);
+				$manager = \Yii::createObject(Yii::$app->components[$this->fileupload]);
 				$file = $manager->createFile(array_pop(explode('.', $_file['name'])));
 				if(move_uploaded_file($_file['tmp_name'], $file['tmp'])){
 					$response['state'] = 'SUCCESS';
