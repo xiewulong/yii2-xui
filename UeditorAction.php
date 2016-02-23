@@ -9,11 +9,11 @@ use yii\imagine\Image;
 
 class UeditorAction extends Action {
 
-	protected $config;
+	private $config;
 
 	public $fileupload = 'fileupload';
 
-	protected $types = [
+	private $types = [
 		'image' => ['image/gif', 'image/jpeg', 'image/pjpeg', 'image/png'],
 	];
 
@@ -36,7 +36,7 @@ class UeditorAction extends Action {
 		}
 	}
 
-	protected function saveFile() {
+	private function saveFile() {
 		$request = \Yii::$app->request;
 		$name = 'upfile';
 		$min = 0;
