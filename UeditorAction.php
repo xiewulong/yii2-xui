@@ -55,14 +55,14 @@ class UeditorAction extends Action {
 			}else if(!empty($type) && !in_array($_file['type'], $this->types[$type])) {
 				$response['state'] = \Yii::t('common', 'Please upload the right file type');
 			}else{
-				$manager = \Yii::createObject(\Yii::$app->components[$this->fileupload]);
-				$file = $manager->createFile(array_pop(explode('.', $_file['name'])));
+				$fileupload = \Yii::createObject(\Yii::$app->components[$this->fileupload]);
+				$file = $fileupload->createFile(array_pop(explode('.', $_file['name'])));
 				if(move_uploaded_file($_file['tmp_name'], $file['tmp'])) {
 					$response['state'] = 'SUCCESS';
 					$response['title'] = $_file['name'];
 					$response['type'] = $_file['type'];
 					$response['size'] = $_file['size'];
-					$response['url'] = $response['original'] = $manager->finalFile($file, $oss);
+					$response['url'] = $response['original'] = $fileupload->finalFile($file, $oss);
 				}
 			}
 		}
