@@ -7,7 +7,7 @@ use yii\base\Action;
 use yii\helpers\Json;
 use yii\imagine\Image;
 
-class UeditorAction extends Action{
+class UeditorAction extends Action {
 
 	private $config;
 
@@ -17,17 +17,18 @@ class UeditorAction extends Action{
 		'image' => ['image/gif', 'image/jpeg', 'image/pjpeg', 'image/png'],
 	];
 
-	public function init(){
+	public function init() {
 		parent::init();
 
 		$this->config = Json::decode(preg_replace('/(\/\*[\s\S]+?\*\/)|(\s+)/', '', file_get_contents(__DIR__ . '/static/plugins/ueditor/php/config.json')));
-		$this->config['imageAllowFiles'] = ['.gif', '.jpg', '.jpeg'];
+		$this->config['imageAllowFiles'] = ['.gif', '.jpg', '.jpeg', '.png'];
 	}
 
-	public function run($action){
-		switch($action){
+	public function run($action) {
+		\Yii::$app->response->format = 'json';
+		switch($action) {
 			case 'config':
-				return Json::encode($this->config);
+				return $this->config;
 				break;
 			case 'uploadimage':
 				return $this->saveFile();
@@ -35,7 +36,7 @@ class UeditorAction extends Action{
 		}
 	}
 
-	private function saveFile(){
+	private function saveFile() {
 		$request = \Yii::$app->request;
 		$name = 'upfile';
 		$min = 0;
@@ -45,18 +46,18 @@ class UeditorAction extends Action{
 		$oss = 'images';
 		$response = ['state' => '没有文件被上传'];
 
-		if(!empty($name) && !empty($_FILES)){
+		if(!empty($name) && !empty($_FILES)) {
 			$_file = $_FILES[$name];
-			if(!empty($min) && $_file['size'] < $min){
+			if(!empty($min) && $_file['size'] < $min) {
 				$response['state'] = \Yii::t('common', 'File size too small');
-			}else if(!empty($max) && $_file['size'] > $max){
+			}else if(!empty($max) && $_file['size'] > $max) {
 				$response['state'] = \Yii::t('common', 'File size too large');
-			}else if(!empty($type) && !in_array($_file['type'], $this->types[$type])){
+			}else if(!empty($type) && !in_array($_file['type'], $this->types[$type])) {
 				$response['state'] = \Yii::t('common', 'Please upload the right file type');
 			}else{
 				$manager = \Yii::createObject(\Yii::$app->components[$this->fileupload]);
 				$file = $manager->createFile(array_pop(explode('.', $_file['name'])));
-				if(move_uploaded_file($_file['tmp_name'], $file['tmp'])){
+				if(move_uploaded_file($_file['tmp_name'], $file['tmp'])) {
 					$response['state'] = 'SUCCESS';
 					$response['title'] = $_file['name'];
 					$response['type'] = $_file['type'];
@@ -66,7 +67,7 @@ class UeditorAction extends Action{
 			}
 		}
 
-		return Json::encode($response);
+		return $response;
 	}
 	
 }
