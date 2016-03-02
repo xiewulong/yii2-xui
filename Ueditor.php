@@ -41,14 +41,14 @@ class Ueditor extends Widget {
 		$id = $this->getRandomId();
 		$view = $this->getView();
 		UeditorAsset::register($view);
-		$view->registerJs("window.$this->var_name=UE.getEditor('$id',{emotionLocalization:true" . $this->getOptionString() . "});");
+		$view->registerJs($this->getJsString());
 	}
 
 	public function run() {
 		return Html::textarea($this->name, $this->value, ['id' => $this->getRandomId()]);
 	}
 
-	private function getOptionString() {
+	private function getJsString() {
 		if(!isset($this->options['action'])) {
 			$this->options['serverUrl'] = $this->action;
 		}
@@ -56,13 +56,18 @@ class Ueditor extends Widget {
 			$this->options['toolbars'] = "[[$this->defaultToolbars]]";
 		}
 
-		$options = [];
+		$js = [];
+		if($this->var_name) {
+			$js[] = "window.$this->var_name=";
+		}
+		$js[] = "UE.getEditor('$id',{emotionLocalization:true";
 		foreach($this->options as $k => $v) {
 			$isString = in_array($k, ['', '']);
-			$options[] = ",$k:" . (in_array($k, $this->stringOptions) ? "'$v'" : $v);
+			$js[] = ",$k:" . (in_array($k, $this->stringOptions) ? "'$v'" : $v);
 		}
+		$js[] = "});";
 
-		return implode('', $options);
+		return implode('', $js);
 	}
 
 	private function getRandomId() {
