@@ -71,7 +71,7 @@ class Ueditor extends Widget {
 
 	private function getRandomId() {
 		if($this->id === null) {
-			$this->id = $this->id_pre . time() . mt_rand(100, 999);
+			$this->id = $this->id_pre . time() . str_pad(mt_rand(0, 9999), 4, 0, STR_PAD_LEFT);
 		}
 
 		return $this->id;
