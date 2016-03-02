@@ -38,7 +38,6 @@ class Ueditor extends Widget {
 	public function init() {
 		parent::init();
 
-		$id = $this->getRandomId();
 		$view = $this->getView();
 		UeditorAsset::register($view);
 		$view->registerJs($this->getJsString());
@@ -60,7 +59,7 @@ class Ueditor extends Widget {
 		if($this->var_name) {
 			$js[] = "window.$this->var_name=";
 		}
-		$js[] = "UE.getEditor('$id',{emotionLocalization:true";
+		$js[] = "UE.getEditor('" . $this->getRandomId() . "',{emotionLocalization:true";
 		foreach($this->options as $k => $v) {
 			$isString = in_array($k, ['', '']);
 			$js[] = ",$k:" . (in_array($k, $this->stringOptions) ? "'$v'" : $v);
