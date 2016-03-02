@@ -40,7 +40,7 @@ class Ueditor extends Widget {
 
 		$view = $this->getView();
 		UeditorAsset::register($view);
-		$view->registerJs($this->getJsString());
+		$view->registerJs($this->getJsString(), 3);
 	}
 
 	public function run() {
