@@ -23,6 +23,7 @@
 		"bower-asset/smalot-bootstrap-datetimepicker": "*",
 		"tinymce/tinymce": "*",
 		"xiewulong/jqueryx": "*",
+		"xiewulong/samples": "*",
 		"xiewulong/yii2-fileupload": "*"
 	},
 	"autoload": {
