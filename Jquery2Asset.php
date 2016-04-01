@@ -14,7 +14,7 @@ namespace yii\xui;
 use Yii;
 use yii\web\AssetBundle;
 
-class Jquery2Asset extends AssetBundle{
+class Jquery2Asset extends AssetBundle {
 
 	public $sourcePath = '@bower/jquery/dist';
 
