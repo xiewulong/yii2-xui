@@ -30,6 +30,8 @@
 		"psr-4": {"yii\\xui\\": ""}
 	},
 	"extra": {
-		"asset-installer-paths": {"bower-asset-library": "vendor/bower"}
+		"asset-installer-paths": {
+			"bower-asset-library": "vendor/bower"
+		}
 	}
 }
