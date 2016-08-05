@@ -5,20 +5,20 @@
  * version: 0.0.1
  */
 
-(function($, window, document, undefined){
+(function($, window, document, undefined) {
 	var _backTop;
 
-	(_backTop = function(classname){
-		if(!$(classname).length)return;
+	(_backTop = function(classname) {
+		if(!$(classname).length) return;
 		var _isTop,
 			$win	= $(window),
 			$target = $(classname);
 
-		$(document).on('click', classname, function(){
+		$(document).on('click', classname, function() {
 			$('html, body').animate({scrollTop: 0});
 		});
 
-		(_isTop = function(){
+		(_isTop = function() {
 			$target[$win.scrollTop() ? 'addClass' : 'removeClass']('show');
 		})();
 

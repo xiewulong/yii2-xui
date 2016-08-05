@@ -50,11 +50,11 @@ class UeditorAction extends Action {
 			$_file = $_FILES[$name];
 			if(!empty($min) && $_file['size'] < $min) {
 				$response['state'] = \Yii::t('common', 'File size too small');
-			}else if(!empty($max) && $_file['size'] > $max) {
+			} else if(!empty($max) && $_file['size'] > $max) {
 				$response['state'] = \Yii::t('common', 'File size too large');
-			}else if(!empty($type) && !in_array($_file['type'], $this->types[$type])) {
+			} else if(!empty($type) && !in_array($_file['type'], $this->types[$type])) {
 				$response['state'] = \Yii::t('common', 'Please upload the right file type');
-			}else{
+			} else {
 				$fileupload = \Yii::createObject(\Yii::$app->components[$this->fileupload]);
 				$file = $fileupload->createFile(array_pop(explode('.', $_file['name'])));
 				if(move_uploaded_file($_file['tmp_name'], $file['tmp'])) {
@@ -69,5 +69,5 @@ class UeditorAction extends Action {
 
 		return $response;
 	}
-	
+
 }

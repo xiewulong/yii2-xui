@@ -5,7 +5,7 @@
  * https://github.com/xiewulong/yii2-xui
  * https://raw.githubusercontent.com/xiewulong/yii2-xui/master/LICENSE
  * create: 2015/2/28
- * update: 2015/3/15
+ * update: 2016/8/2
  * version: 0.0.1
  */
 
@@ -15,7 +15,7 @@ use Yii;
 use yii\base\Widget;
 use yii\helpers\Html;
 
-class Tinymce extends Widget{
+class Tinymce extends Widget) {
 
 	public $name = null;
 
