@@ -25,11 +25,14 @@ body{font-family:'\5FAE\8F6F\96C5\9ED1',microsoft yahei,'helvetica neue',helveti
 .admin-sidebar ul li .text .dfn{float:left;}
 .admin-sidebar ul.sidebar{width:180px;}
 .admin-sidebar ul.sidebar > li > .text{background-color:#22282e;}
-.admin-sidebar ul.sidebar > li > .text .glyphicon-triangle-bottom{font-size:10px;-webkit-transform:scale(.7);transform:scale(.7);-webkit-transition:transform .2s ease-out;transition:transform .2s ease-out;margin:0 8px 0 20px;-webkit-transition:margin-right .2s ease-out;transition:margin-right .2s ease-out;}
+.admin-sidebar ul.sidebar > li > .text em i{font-size:10px;-webkit-transition:transform .2s ease-out;transition:transform .2s ease-out;margin:0 8px 0 20px;-webkit-transition:margin-right .2s ease-out;transition:margin-right .2s ease-out;}
+.admin-sidebar ul.sidebar > li > .text em i.glyphicon-triangle-bottom{-webkit-transform:scale(.7);transform:scale(.7);}
 .admin-sidebar ul.sidebar > li.fold > .text{background-color:#37424f;border-bottom:1px solid #414d5c;}
-.admin-sidebar ul.sidebar > li.fold > .text .glyphicon-triangle-bottom{-webkit-transform:scale(.7) rotate(-90deg);transform:scale(.7) rotate(-90deg);}
+.admin-sidebar ul.sidebar > li.fold > .text em i{-webkit-transform:rotate(-90deg);transform:rotate(-90deg);}
+.admin-sidebar ul.sidebar > li.fold > .text em i.glyphicon-triangle-bottom{-webkit-transform:scale(.7) rotate(-90deg);transform:scale(.7) rotate(-90deg);}
 .admin-sidebar ul.sidebar > li.fold > ul.children{height:0 !important;overflow:hidden;}
-.admin-sidebar ul.sidebar > li > .text:hover{background-color:#414d5c;}
+.admin-sidebar ul.sidebar > li > .text:hover,
+.admin-sidebar ul.sidebar > li.current > .text{background-color:#414d5c;}
 .admin-sidebar ul.children{-webkit-transition:height .12s ease-out;transition:height .12s ease-out;}
 .admin-sidebar ul.children > li > .text em{float:left;width:50px;text-align:center;color:#aeb9c2;}
 .admin-sidebar ul.children > li > .text:hover{background-color:#37424f;}
@@ -41,7 +44,7 @@ body{font-family:'\5FAE\8F6F\96C5\9ED1',microsoft yahei,'helvetica neue',helveti
 .admin-sidebar-fold,
 .admin-sidebar-fold .sidebar-control{width:50px;}
 .admin-sidebar-fold .sidebar-control .glyphicon{-webkit-transform:rotate(0);transform:rotate(0);}
-.admin-sidebar-fold ul.sidebar > li > .text .glyphicon-triangle-bottom{margin-right:20px;}
+.admin-sidebar-fold ul.sidebar > li > .text em i{margin-right:20px;}
 .admin-sidebar-fold ~ .admin-body{padding-left:50px;}
 
 /* admin-body */
@@ -56,6 +59,7 @@ body{font-family:'\5FAE\8F6F\96C5\9ED1',microsoft yahei,'helvetica neue',helveti
 .admin-brand h1{float:left;}
 .admin-brand{background-color:#0087b4;cursor:default;}
 .admin-brand h1{color:#fff;font-size:16px;height:50px;line-height:50px;padding:0 20px 0 10px;margin:0;}
+.admin-brand h1 span{margin-left:5px;font-size:14px;}
 .admin-brand strong{min-width:50px;height:50px;line-height:50px;text-align:center;}
 .admin-brand strong img{max-height:100%;}
 .admin-brand a:hover h1{font-weight:700;}
@@ -66,7 +70,7 @@ body{font-family:'\5FAE\8F6F\96C5\9ED1',microsoft yahei,'helvetica neue',helveti
 .admin-menu ul li a:hover,
 .admin-menu ul li a:focus,
 .admin-menu ul li a:active{text-decoration:none;}
-.admin-menu ul li .text{display:block;}
+.admin-menu ul li .text{display:block;overflow:hidden;}
 .admin-menu ul li .glyphicon{margin-left:5px;}
 .admin-menu ul li .glyphicon-triangle-bottom{font-size:10px;-webkit-transform:scale(.7);transform:scale(.7);-webkit-transition:all .2s ease-out;transition:all .2s ease-out;}
 .admin-menu ul.main > li{float:left;position:relative;}

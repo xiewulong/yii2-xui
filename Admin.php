@@ -5,7 +5,7 @@
  * https://github.com/xiewulong/yii2-xui
  * https://raw.githubusercontent.com/xiewulong/yii2-xui/master/LICENSE
  * create: 2016/8/2
- * update: 2016/8/7
+ * update: 2016/8/8
  * since: 0.0.2
  */
 
@@ -81,7 +81,7 @@ class Admin extends Widget {
 			'item' => function($item, $index) use($type, &$active) {
 				if(!$this->checkUserCan($item)) return null;
 
-				$content = isset($item['url']) ? Html::a($item['text'], $item['url'], ['class' => 'text']) : Html::tag('div', $item['text'], ['class' => 'text']);
+				$content = isset($item['url']) ? Html::a($item['text'], $item['url'], ['class' => 'text']) : Html::tag(isset($item['tagName']) ? $item['tagName'] : 'div', $item['text'], ['class' => 'text']);
 				$options = isset($item['options']) ? $item['options'] : [];
 
 				for($i = 0, $len = count($this->enableTypes); $i < $len; $i++) {
@@ -118,6 +118,12 @@ class Admin extends Widget {
 	}
 
 	protected function checkCurrent($url) {
+		if(is_array($url)) {
+			$url = $url[0];
+		}
+		// if($pos = strpos($url, '?')) {
+		// 	$url = substr($url, 0, $pos);
+		// }
 		if(strncmp($url, '/', 1) === 0) {
 			$url = ltrim($url, '/');
 		}

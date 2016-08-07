@@ -16,7 +16,7 @@ use yii\web\AssetBundle;
 
 class ModuleAsset extends AssetBundle {
 
-	public $staticsPath = 'dist';
+	public $distPath = 'dist';
 
 	public function init() {
 		parent::init();
@@ -27,7 +27,7 @@ class ModuleAsset extends AssetBundle {
 		$this->js[] = 'js/' . \Yii::$app->controller->module->id . '.js';
 		$this->js[] = 'js/' . $filename . '.js';
 
-		$this->sourcePath = \Yii::$app->controller->module->basePath . DIRECTORY_SEPARATOR . $this->staticsPath;
+		$this->sourcePath = \Yii::$app->controller->module->basePath . DIRECTORY_SEPARATOR . $this->distPath;
 	}
 
 }
