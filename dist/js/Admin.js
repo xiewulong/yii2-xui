@@ -7,14 +7,14 @@
 
 // dropdown
 (function($, document, undefined) {
-	$(document).on('click', '.J-admin-menu > ul.main > li > .text', function() {
+	$(document).on('click', '.J-admin-header .menu > ul.main > li > .text', function() {
 		var $li	= $(this).parent('li');
 		if(!$li.hasClass('dropdown-hover') && $li.find('ul.dropdown, ul.dropdown-mixed').length) {
 			$li.toggleClass('dropdown-open');
 			return false;
 		}
 	}).on('click', function() {
-		$('.J-admin-menu > ul.main > li.dropdown-open').removeClass('dropdown-open');
+		$('.J-admin-header .menu > ul.main > li.dropdown-open').removeClass('dropdown-open');
 	});
 })(jQuery, document);
 

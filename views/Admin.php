@@ -3,19 +3,17 @@ use yii\helpers\Html;
 ?>
 
 <!-- begin admin-header -->
-<div class="admin-header clearfix">
+<div class="clearfix admin-header J-admin-header">
 
 	<?php if($brand) { ?>
-	<!-- begin admin-brand -->
-	<div class="admin-brand">
+	<div class="brand">
 		<?= $brand ?>
 	</div>
-	<!-- end admin-brand -->
 	<? } ?>
 
 	<?php if($mainMenu) { ?>
 	<!-- begin admin-menu -->
-	<div class="admin-menu J-admin-menu">
+	<div class="menu">
 		<?= $mainMenu ?>
 	</div>
 	<!-- end admin-menu -->

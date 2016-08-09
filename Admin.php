@@ -70,7 +70,7 @@ class Admin extends Widget {
 		return $this->renderItems()[0];
 	}
 
-	protected function renderItems($items = [], $type = 'main') {
+	protected function renderItems($items = [], $type = 'main', $sidebar = false) {
 		if(empty($items)) {
 			$items = $this->menus;
 		}
@@ -78,10 +78,20 @@ class Admin extends Widget {
 		$active = false;
 		$html = !empty($items) && is_array($items) ? Html::ul($items, [
 			'class' => 'clearfix ' . $type,
-			'item' => function($item, $index) use($type, &$active) {
+			'item' => function($item, $index) use($type, $sidebar, &$active) {
 				if(!$this->checkUserCan($item)) return null;
 
-				$content = isset($item['url']) ? Html::a($item['text'], $item['url'], ['class' => 'text']) : Html::tag(isset($item['tagName']) ? $item['tagName'] : 'div', $item['text'], ['class' => 'text']);
+				$text = $item['text'];
+				if($type == 'sidebar' && isset($item['children'])) {
+					$text = Html::tag('em', Html::tag('i', null, ['class' => 'glyphicon glyphicon-triangle-bottom'])) . $text;
+				} else if(isset($item['dropdown']) || isset($item['dropdown-mixed'])) {
+					$text .= Html::tag('i', null, ['class' => 'glyphicon glyphicon-triangle-bottom']);
+				} else if(isset($item['icon'])) {
+					$icon = Html::tag('i', null, ['class' => $item['icon']]);
+					$text = ($sidebar ? Html::tag('em', $icon) : $icon) . $text;
+				}
+
+				$content = isset($item['url']) ? Html::a($text, $item['url'], ['class' => 'text']) : Html::tag(isset($item['tagName']) ? $item['tagName'] : 'div', $text, ['class' => 'text']);
 				$options = isset($item['options']) ? $item['options'] : [];
 
 				for($i = 0, $len = count($this->enableTypes); $i < $len; $i++) {
@@ -91,7 +101,7 @@ class Admin extends Widget {
 							$content .= Html::tag('div', implode('', $item[$subType]), ['class' => 'dropdown-mixed']);
 							$_active = false;
 						} else {
-							list($_content, $_active) = $this->renderItems($item[$subType], $subType);
+							list($_content, $_active) = $this->renderItems($item[$subType], $subType, $sidebar || $subType == 'sidebar');
 							if($subType == 'sidebar') {
 								if($_active) array_unshift($this->_sidebars, $_content);
 							} else {
