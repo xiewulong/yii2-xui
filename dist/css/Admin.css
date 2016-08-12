@@ -70,6 +70,9 @@ a:focus {
 .form-control:focus {
   box-shadow: none; }
 
+.pagination {
+  margin: 0; }
+
 /* body */
 body {
   font-family: '\5FAE\8F6F\96C5\9ED1',microsoft yahei,'helvetica neue',helvetica,arial,sans-serif; }
@@ -109,10 +112,12 @@ body {
   min-width: 50px;
   height: 50px;
   line-height: 50px;
-  text-align: center; }
+  text-align: center;
+  overflow: hidden; }
 
 .admin-header .brand strong img {
-  max-height: 100%; }
+  max-height: 100%;
+  vertical-align: top; }
 
 .admin-header .menu ul {
   list-style: none;
@@ -334,24 +339,27 @@ body {
 .admin-sidebar-fold .sidebar-control {
   width: 50px; }
 
-.admin-sidebar-fold .sidebar-control .glyphicon-align-justify {
+.admin-sidebar-fold .sidebar-control .glyphicon {
   -webkit-transform: rotate(0);
   transform: rotate(0); }
 
 .admin-sidebar-fold ul.sidebar > li > .text em i {
   margin-right: 22px; }
 
-.admin-sidebar-fold ~ .admin-body {
-  padding-left: 50px; }
-
 /* admin-body */
 .admin-body {
-  padding: 50px 0 15px 180px;
+  padding: 50px 0 15px;
   overflow: hidden;
   -webkit-transition: padding-left .2s ease-out;
   transition: padding-left .2s ease-out;
   position: relative;
   z-index: 1; }
+
+.admin-sidebar ~ .admin-body {
+  padding-left: 180px; }
+
+.admin-sidebar-fold ~ .admin-body {
+  padding-left: 50px; }
 
 /* admin-footer */
 .admin-footer {
@@ -440,6 +448,9 @@ body {
 .admin-table {
   font-size: 12px; }
 
+.admin-table table {
+  margin: 0; }
+
 .admin-table thead,
 .admin-table tbody,
 .admin-table tfoot {
@@ -462,15 +473,8 @@ body {
 .admin-table tfoot > tr > td {
   vertical-align: middle; }
 
-/* admin-pagination */
-.admin-pagination .info {
-  color: #888;
-  display: inline-block;
-  padding: 6px 12px;
-  vertical-align: top; }
-
-.admin-pagination .pagination {
-  margin: 0; }
+.admin-table-empty {
+  font-size: 16px; }
 
 /* admin-form */
 .admin-form .control-label {
@@ -486,10 +490,10 @@ body {
 .admin-fileupload {
   position: relative;
   overflow: hidden;
-  width: 82px;
-  height: 82px;
   border: 1px solid #ddd;
   text-align: center;
+  width: 82px;
+  height: 82px;
   line-height: 80px; }
 
 .admin-fileupload input[type=file],

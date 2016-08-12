@@ -5,6 +5,47 @@
  * version: 0.0.2
  */
 
+// csrf
+(function($, document, undefined) {
+	var param	= $('meta[name=csrf-param]').attr('content'),
+		token	= $('meta[name=csrf-token]').attr('content');
+	$.csrf = function(data) {
+		data = data || {};
+		data[param] = token;
+		return data;
+	};
+})(jQuery, document);
+
+// modal
+(function($, document, undefined) {
+	$.modal = function(html, options) {
+		// html sample
+		// '<div class="modal fade">' +
+		// 	'<div class="modal-dialog">' +
+		// 		'<div class="modal-content">' +
+		// 			'<div class="modal-header">' +
+		// 				'<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
+		// 				'<h4 class="modal-title">Modal title</h4>' +
+		// 			'</div>' +
+		// 			'<div class="modal-body">' +
+		// 				'<p>One fine body&hellip;</p>' +
+		// 			'</div>' +
+		// 			'<div class="modal-footer">' +
+		// 				'<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>' +
+		// 				'<button type="button" class="btn btn-primary">Save changes</button>' +
+		// 			'</div>' +
+		// 		'</div>' +
+		// 	'</div>' +
+		// '</div>';
+
+		return $(html).modal($.extend({backdrop: 'static'}, options)).on('shown.bs.modal', function() {
+			$(this).find('[autofocus=autofocus]').focus();
+		}).on('hidden.bs.modal', function() {
+			$(this).remove();
+		});
+	};
+})(jQuery, document);
+
 // dropdown
 (function($, document, undefined) {
 	$(document).on('click', '.J-admin-header .menu > ul.main > li > .text', function() {
@@ -35,13 +76,13 @@
 	});
 })(jQuery, document);
 
-// sidebar
+// alert
 (function($, document, undefined) {
 	var $alerts	= $('.J-admin-alerts'),
 		types	= ['success', 'danger', 'info', 'warning'],
 		Alert	= function(text, type, delay) {
 			this.text = text;
-			this.type = types[type === undefined ? 1 : type];
+			this.type = types[type];
 			this.delay = delay || 3000;
 			return this.init();
 		};
@@ -81,8 +122,63 @@
 		},
 	};
 	$.alert = function(text, type, delay) {
+		if(type === undefined || type === true) {
+			type = 1;
+		} else if(type === false) {
+			type = 0;
+		}
 		return new Alert(text, type, delay);
 	}
+})(jQuery, document);
+
+// delete modal
+(function($, document, undefined) {
+	$(document).on('click', '[data-delete]', function() {
+		var deleted, $modal,
+			$this	= $(this),
+			id		= $this.attr('data-delete'),
+			url		= $this.attr('href') || $this.attr('data-url');
+		if(!id || !url) return;
+		$modal = $.modal(	'<div class="modal fade">' +
+								'<div class="modal-dialog">' +
+									'<form class="modal-content">' +
+										'<fieldsed>' +
+											'<div class="modal-header">' +
+												'<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
+												'<h5 class="modal-title">删除提示</h5>' +
+											'</div>' +
+											'<div class="modal-body">' +
+												'<p>您确定要删除吗？</p>' +
+											'</div>' +
+											'<div class="modal-footer">' +
+												'<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>' +
+												'<button type="submit" class="btn btn-primary">确定</button>' +
+											'</div>' +
+										'</fieldsed>' +
+									'</form>' +
+								'</div>' +
+							'</div>');
+		$modal.on('submit', 'form', function() {
+			var $fieldset	= $(this).find('fieldset').prop('disabled', true);
+			$.ajax({
+				url: url,
+				data: $.csrf({id: id}),
+				method: 'post',
+				dataType: 'json',
+				success: function(d) {
+					if(!d.error) {
+						deleted = true;
+					}
+					$modal.modal('hide');
+					$.alert(d.message, d.error);
+				}
+			});
+			return false;
+		}).on('hidden.bs.modal', function() {
+			deleted && window.location.reload();
+		});
+		return false;
+	});
 })(jQuery, document);
 
 // file upload
@@ -109,7 +205,6 @@
 			_setData.call($file.get(0), data);
 		}
 	});
-
 	function _setData(data) {
 		var $this		= $(this),
 			$parent		= $this.parent(),

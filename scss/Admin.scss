@@ -41,6 +41,7 @@ a:focus{outline:0;}
 .btn-primary.active.focus{background-color:#28b5d6;border-color:#28b5d6;}
 .control-label{font-size:12px;font-weight:500;}
 .form-control:focus{box-shadow:none;}
+.pagination{margin:0;}
 
 /* body */
 body{font-family:'\5FAE\8F6F\96C5\9ED1',microsoft yahei,'helvetica neue',helvetica,arial,sans-serif;}
@@ -53,8 +54,8 @@ body{font-family:'\5FAE\8F6F\96C5\9ED1',microsoft yahei,'helvetica neue',helveti
 .admin-header .brand{background-color:#0087b4;cursor:default;}
 .admin-header .brand h1{color:#fff;font-size:14px;height:50px;line-height:50px;padding:0 20px 0 10px;margin:0;}
 .admin-header .brand h1 small{color:#fff;margin-left:5px;}
-.admin-header .brand strong{min-width:50px;height:50px;line-height:50px;text-align:center;}
-.admin-header .brand strong img{max-height:100%;}
+.admin-header .brand strong{min-width:50px;height:50px;line-height:50px;text-align:center;overflow:hidden;}
+.admin-header .brand strong img{max-height:100%;vertical-align:top;}
 .admin-header .menu ul{list-style:none;margin:0;padding:0;}
 .admin-header .menu ul li a:hover,
 .admin-header .menu ul li a:focus,
@@ -120,12 +121,13 @@ body{font-family:'\5FAE\8F6F\96C5\9ED1',microsoft yahei,'helvetica neue',helveti
 .admin-sidebar ul.children > li.current > .text em{color:#fff;}
 .admin-sidebar-fold,
 .admin-sidebar-fold .sidebar-control{width:50px;}
-.admin-sidebar-fold .sidebar-control .glyphicon-align-justify{-webkit-transform:rotate(0);transform:rotate(0);}
+.admin-sidebar-fold .sidebar-control .glyphicon{-webkit-transform:rotate(0);transform:rotate(0);}
 .admin-sidebar-fold ul.sidebar > li > .text em i{margin-right:22px;}
-.admin-sidebar-fold ~ .admin-body{padding-left:50px;}
 
 /* admin-body */
-.admin-body{padding:50px 0 15px 180px;overflow:hidden;-webkit-transition:padding-left .2s ease-out;transition:padding-left .2s ease-out;position:relative;z-index:1;}
+.admin-body{padding:50px 0 15px;overflow:hidden;-webkit-transition:padding-left .2s ease-out;transition:padding-left .2s ease-out;position:relative;z-index:1;}
+.admin-sidebar ~ .admin-body{padding-left:180px;}
+.admin-sidebar-fold ~ .admin-body{padding-left:50px;}
 
 /* admin-footer */
 .admin-footer{position:relative;z-index:4;}
@@ -159,6 +161,7 @@ body{font-family:'\5FAE\8F6F\96C5\9ED1',microsoft yahei,'helvetica neue',helveti
 
 /* admin-table */
 .admin-table{font-size:12px;}
+.admin-table table{margin:0;}
 .admin-table thead,
 .admin-table tbody,
 .admin-table tfoot{border:1px solid #e1e6eb;}
@@ -170,11 +173,7 @@ body{font-family:'\5FAE\8F6F\96C5\9ED1',microsoft yahei,'helvetica neue',helveti
 .admin-table tbody > tr > td,
 .admin-table tfoot > tr > th,
 .admin-table tfoot > tr > td{vertical-align:middle;}
-
-/* admin-pagination */
-.admin-pagination{}
-.admin-pagination .info{color:#888;display:inline-block;padding:6px 12px;vertical-align:top;}
-.admin-pagination .pagination{margin:0;}
+.admin-table tfoot > tr > td.empty{font-size:16px;}
 
 /* admin-form */
 .admin-form{}
@@ -183,7 +182,7 @@ body{font-family:'\5FAE\8F6F\96C5\9ED1',microsoft yahei,'helvetica neue',helveti
 .admin-form input[type=file]{margin-top:4px;}
 
 /* admin-fileupload */
-.admin-fileupload{position:relative;overflow:hidden;width:82px;height:82px;border:1px solid #ddd;text-align:center;line-height:80px;}
+.admin-fileupload{position:relative;overflow:hidden;border:1px solid #ddd;text-align:center;width:82px;height:82px;line-height:80px;}
 .admin-fileupload input[type=file],
 .admin-fileupload img,
 .admin-fileupload i{position:absolute;}
