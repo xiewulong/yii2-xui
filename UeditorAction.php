@@ -5,7 +5,7 @@
  * https://github.com/xiewulong/yii2-xui
  * https://raw.githubusercontent.com/xiewulong/yii2-xui/master/LICENSE
  * create: 2015/3/15
- * update: 2016/8/7
+ * update: 2016/8/14
  * since: 0.0.1
  */
 
@@ -29,7 +29,7 @@ class UeditorAction extends Action {
 	public function init() {
 		parent::init();
 
-		$this->config = Json::decode(preg_replace('/(\/\*[\s\S]+?\*\/)|(\s+)/', '', file_get_contents(__DIR__ . '/static/plugins/ueditor/php/config.json')));
+		$this->config = Json::decode(preg_replace('/(\/\*[\s\S]+?\*\/)|(\s+)/', '', file_get_contents(__DIR__ . '/dist/plugins/ueditor/php/config.json')));
 		$this->config['imageAllowFiles'] = ['.gif', '.jpg', '.jpeg', '.png'];
 	}
 
@@ -65,7 +65,8 @@ class UeditorAction extends Action {
 				$response['state'] = \Yii::t('common', 'Please upload the right file type');
 			} else {
 				$fileupload = \Yii::createObject(\Yii::$app->components[$this->fileupload]);
-				$file = $fileupload->createFile(array_pop(explode('.', $_file['name'])));
+				$nameList = explode('.', $_file['name']);
+				$file = $fileupload->createFile(array_pop($nameList));
 				if(move_uploaded_file($_file['tmp_name'], $file['tmp'])) {
 					$response['state'] = 'SUCCESS';
 					$response['title'] = $_file['name'];

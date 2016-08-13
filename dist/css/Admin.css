@@ -473,7 +473,7 @@ body {
 .admin-table tfoot > tr > td {
   vertical-align: middle; }
 
-.admin-table-empty {
+.admin-table tfoot > tr > td.empty {
   font-size: 16px; }
 
 /* admin-form */
@@ -537,5 +537,9 @@ body {
 .admin-fileupload i:hover,
 .admin-fileupload:hover:before {
   color: #666; }
+
+.admin-fileuploads {
+  margin: 0 10px 5px 0;
+  float: left; }
 
 /*# sourceMappingURL=Admin.css.map */

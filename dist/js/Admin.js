@@ -188,12 +188,27 @@
 			$.alert(d.message);
 			return false;
 		}
-		_setData.call(this, d.data);
+		$(this).parent().attr('data-fileupload-max') === undefined ? _setData.call(this, d.data) : _new.call(this, d.data);
 		$.alert(d.message, d.error);
 	}).on('click', '.J-admin-fileupload i', function() {
-		var $parent	= $(this).parent();
-		 $parent.find('input[type=hidden]').val('');
-		 $parent.find('img, i').remove();
+		var $add, max,
+			$parent	= $(this).parent();
+		if($parent.hasClass('admin-fileuploads')) {
+			$add = $parent.siblings('[data-fileupload-max]');
+			max = + $add.attr('data-fileupload-max');
+			max > 0 && $parent.siblings('.admin-fileuploads').length < max && $add.show();
+			$parent.remove();
+			return false;
+		}
+		$parent.find('input[type=hidden]').val('');
+		$parent.find('img, i').remove();
+	}).on('click', '[data-fileupload-max]', function() {
+		var $this	= $(this),
+			max		= + $this.attr('data-fileupload-max');
+		if(max > 0 && $this.prevAll('.admin-fileuploads').length >= max) {
+			$.alert('最多只能添加' + max + '张图片', 3);
+			return false;
+		}
 	});
 	$('.J-admin-fileupload').each(function() {
 		var $this	= $(this),
@@ -205,7 +220,16 @@
 			_setData.call($file.get(0), data);
 		}
 	});
-	function _setData(data) {
+	function _new(data) {
+		var $this	= $(this),
+			$parent	= $this.parent(),
+			max		= + $parent.attr('data-fileupload-max');
+			$new 	= $parent.clone().removeAttr('data-fileupload-max').removeClass('glyphicon-plus').addClass('glyphicon-picture admin-fileuploads');
+		_setData.call($new.find('input[type=file]').get(0), data, true);
+		$parent.before($new);
+		max > 0 && $parent.siblings('.admin-fileuploads').length >= max && $parent.hide();
+	}
+	function _setData(data, isNew) {
 		var $this		= $(this),
 			$parent		= $this.parent(),
 			$hidden		= $parent.find('input[type=hidden]'),
@@ -222,5 +246,6 @@
 		}
 		$hidden.val(data.original);
 		$img.attr('src', thumb);
+		isNew && $this.remove();
 	}
 })(jQuery, document);
