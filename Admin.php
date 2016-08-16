@@ -5,7 +5,7 @@
  * https://github.com/xiewulong/yii2-xui
  * https://raw.githubusercontent.com/xiewulong/yii2-xui/master/LICENSE
  * create: 2016/8/2
- * update: 2016/8/10
+ * update: 2016/8/16
  * since: 0.0.2
  */
 
@@ -79,20 +79,27 @@ class Admin extends Widget {
 		$html = !empty($items) && is_array($items) ? Html::ul($items, [
 			'class' => 'clearfix ' . $type,
 			'item' => function($item, $index) use($type, $sidebar, &$active) {
-				if(!$this->checkUserCan($item)) return null;
+				if(empty($item) || !$this->checkUserCan($item)) return null;
 
 				$text = $item['text'];
 				if($type == 'sidebar' && isset($item['children'])) {
 					$text = Html::tag('em', Html::tag('i', null, ['class' => 'glyphicon glyphicon-triangle-bottom'])) . $text;
-				} else if(isset($item['dropdown']) || isset($item['dropdown-mixed'])) {
-					$text .= Html::tag('i', null, ['class' => 'glyphicon glyphicon-triangle-bottom']);
-				} else if(isset($item['icon'])) {
+				}  else if(isset($item['icon'])) {
 					$icon = Html::tag('i', null, ['class' => $item['icon']]);
 					$text = ($sidebar ? Html::tag('em', $icon) : $icon) . $text;
 				}
+				if(isset($item['dropdown']) || isset($item['dropdown-mixed'])) {
+					$text .= Html::tag('i', null, ['class' => 'glyphicon glyphicon-triangle-bottom']);
+				}
 
-				$content = isset($item['url']) ? Html::a($text, $item['url'], ['class' => 'text']) : Html::tag(isset($item['tagName']) ? $item['tagName'] : 'div', $text, ['class' => 'text']);
 				$options = isset($item['options']) ? $item['options'] : [];
+				$aOptions = ['class' => 'text'];
+				if(isset($options['target'])) {
+					$aOptions['target'] = $options['target'];
+					unset($options['target']);
+				}
+
+				$content = isset($item['url']) ? Html::a($text, $item['url'], $aOptions) : Html::tag(isset($item['tagName']) ? $item['tagName'] : 'div', $text, ['class' => 'text']);
 
 				for($i = 0, $len = count($this->enableTypes); $i < $len; $i++) {
 					$subType = $this->enableTypes[$i];
