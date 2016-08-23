@@ -5,7 +5,7 @@
  * https://github.com/xiewulong/yii2-xui
  * https://raw.githubusercontent.com/xiewulong/yii2-xui/master/LICENSE
  * create: 2016/8/15
- * update: 2016/8/19
+ * update: 2016/8/23
  * since: 0.0.2
  */
 
@@ -20,6 +20,8 @@ class Ul extends Widget {
 	public $tag = 'div';
 
 	public $options = [];
+
+	public $listOptions = [];
 
 	public $items = [];
 
@@ -38,7 +40,7 @@ class Ul extends Widget {
 		$backgroundImage = $this->backgroundImage;
 		$blankTarget = $this->blankTarget;
 
-		return Html::ul($this->items, [
+		return Html::ul($this->items, array_merge([
 			'item' => function($item) use($itemOptions, $backgroundImage, $blankTarget) {
 				$_content = [];
 				$_options = [];
@@ -62,7 +64,7 @@ class Ul extends Widget {
 
 				return Html::tag('li', $content, $itemOptions);
 			},
-		]);
+		], $this->listOptions));
 	}
 
 }
