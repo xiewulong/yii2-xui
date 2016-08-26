@@ -5,7 +5,7 @@
  * https://github.com/xiewulong/yii2-xui
  * https://raw.githubusercontent.com/xiewulong/yii2-xui/master/LICENSE
  * create: 2016/8/2
- * update: 2016/8/19
+ * update: 2016/8/25
  * since: 0.0.2
  */
 
@@ -80,7 +80,7 @@ class Admin extends Widget {
 		$active = false;
 		$html = !empty($items) && is_array($items) ? Html::ul($items, [
 			'class' => 'clearfix ' . $type,
-			'item' => function($item, $index) use($type, $sidebar, &$active) {
+			'item' => function($item) use($type, $sidebar, &$active) {
 				if(empty($item) || !$this->checkUserCan($item)) return null;
 
 				$text = $item['text'];
