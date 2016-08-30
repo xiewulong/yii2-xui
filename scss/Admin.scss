@@ -184,18 +184,18 @@ body{font-family:'\5FAE\8F6F\96C5\9ED1',microsoft yahei,'helvetica neue',helveti
 .admin-form input[type=file]{margin-top:4px;}
 .admin-form .thumbnail{padding:0;margin-bottom:15px;border:0;border-radius:0;-webkit-transition:none;transition:none;}
 
-/* admin-fileupload */
-.admin-fileupload{position:relative;overflow:hidden;border:1px solid #ddd;text-align:center;width:82px;height:82px;line-height:80px;}
-.admin-fileupload input[type=file],
-.admin-fileupload img,
-.admin-fileupload i{position:absolute;}
-.admin-fileupload input[type=file]{top:0;right:0;bottom:0;font-size:168px;margin:0;z-index:2;cursor:pointer;opacity:0;filter:alpha(opacity=0);}
-.admin-fileupload img{top:0;right:0;bottom:0;left:0;z-index:3;background-color:#fff;}
-.admin-fileupload i{top:5px;right:5px;z-index:4;cursor:pointer;color:#888;font-size:10px;}
-.admin-fileupload:before{font-size:40px;position:relative;z-index:1;color:#888;}
-.admin-fileupload i:hover,
-.admin-fileupload:hover:before{color:#666;}
-.admin-fileuploads{margin:0 10px 5px 0;float:left;}
+/* admin-attachment */
+.admin-attachment{position:relative;overflow:hidden;border:1px solid #ddd;text-align:center;width:82px;height:82px;line-height:80px;}
+.admin-attachment input[type=file],
+.admin-attachment img,
+.admin-attachment i{position:absolute;}
+.admin-attachment input[type=file]{top:0;right:0;bottom:0;font-size:168px;margin:0;z-index:2;cursor:pointer;opacity:0;filter:alpha(opacity=0);}
+.admin-attachment img{top:0;left:0;width:100%;height:100%;z-index:3;background-color:#fff;}
+.admin-attachment i{top:5px;right:5px;z-index:4;cursor:pointer;color:#888;font-size:10px;}
+.admin-attachment:before{font-size:40px;position:relative;z-index:1;color:#888;}
+.admin-attachment i:hover,
+.admin-attachment:hover:before{color:#666;}
+.admin-attachments{margin:0 10px 5px 0;float:left;}
 
 /* admin-image-limit */
 .admin-image-limit{max-width:100%;}

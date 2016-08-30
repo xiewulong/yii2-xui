@@ -20,14 +20,13 @@
 		"yiisoft/yii2-bootstrap": "*",
 		"bower-asset/jquery": "1.* | *",
 		"bower-asset/bootstrap": "*",
-        "bower-asset/font-awesome": "*",
-        "bower-asset/html5shiv": "*",
-        "bower-asset/respond-minmax": "*",
+		"bower-asset/font-awesome": "*",
+		"bower-asset/html5shiv": "*",
+		"bower-asset/respond-minmax": "*",
 		"bower-asset/smalot-bootstrap-datetimepicker": "*",
 		"tinymce/tinymce": "*",
 		"xiewulong/jqueryx": "*",
-		"xiewulong/samples": "*",
-		"xiewulong/yii2-fileupload": "*"
+		"xiewulong/samples": "*"
 	},
 	"autoload": {
 		"psr-4": {"yii\\xui\\": ""}

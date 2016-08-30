@@ -497,8 +497,8 @@ body {
   -webkit-transition: none;
   transition: none; }
 
-/* admin-fileupload */
-.admin-fileupload {
+/* admin-attachment */
+.admin-attachment {
   position: relative;
   overflow: hidden;
   border: 1px solid #ddd;
@@ -507,12 +507,12 @@ body {
   height: 82px;
   line-height: 80px; }
 
-.admin-fileupload input[type=file],
-.admin-fileupload img,
-.admin-fileupload i {
+.admin-attachment input[type=file],
+.admin-attachment img,
+.admin-attachment i {
   position: absolute; }
 
-.admin-fileupload input[type=file] {
+.admin-attachment input[type=file] {
   top: 0;
   right: 0;
   bottom: 0;
@@ -523,15 +523,15 @@ body {
   opacity: 0;
   filter: alpha(opacity=0); }
 
-.admin-fileupload img {
+.admin-attachment img {
   top: 0;
-  right: 0;
-  bottom: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
   z-index: 3;
   background-color: #fff; }
 
-.admin-fileupload i {
+.admin-attachment i {
   top: 5px;
   right: 5px;
   z-index: 4;
@@ -539,17 +539,17 @@ body {
   color: #888;
   font-size: 10px; }
 
-.admin-fileupload:before {
+.admin-attachment:before {
   font-size: 40px;
   position: relative;
   z-index: 1;
   color: #888; }
 
-.admin-fileupload i:hover,
-.admin-fileupload:hover:before {
+.admin-attachment i:hover,
+.admin-attachment:hover:before {
   color: #666; }
 
-.admin-fileuploads {
+.admin-attachments {
   margin: 0 10px 5px 0;
   float: left; }
 

@@ -181,62 +181,58 @@
 	});
 })(jQuery, document);
 
-// file upload
+// attachment upload
 (function($, document, undefined) {
-	$(document).on('uploaded.x.file', '.J-admin-fileupload input[type=file]', function(e, d) {
+	$(document).on('uploaded.attachment.file', '.J-admin-attachment input[type=file]', function(e, d) {
 		if(d.error) {
 			$.alert(d.message);
 			return false;
 		}
-		$(this).parent().attr('data-fileupload-max') === undefined ? _setData.call(this, d.data) : _new.call(this, d.data);
+		$(this).parent().attr('data-attachment-max') === undefined ? _setData.call(this, d.data) : _new.call(this, d.data);
 		$.alert(d.message, d.error);
-	}).on('click', '.J-admin-fileupload i', function() {
+	}).on('click', '.J-admin-attachment i', function() {
 		var $add, max,
 			$parent	= $(this).parent();
-		if($parent.hasClass('admin-fileuploads')) {
-			$add = $parent.siblings('[data-fileupload-max]');
-			max = + $add.attr('data-fileupload-max');
-			max > 0 && $parent.siblings('.admin-fileuploads').length < max && $add.show();
+		if($parent.hasClass('admin-attachments')) {
+			$add = $parent.siblings('[data-attachment-max]');
+			max = + $add.attr('data-attachment-max');
+			max > 0 && $parent.siblings('.admin-attachments').length < max && $add.show();
 			$parent.remove();
 			return false;
 		}
 		$parent.find('input[type=hidden]').val('');
 		$parent.find('img, i').remove();
-	}).on('click', '[data-fileupload-max]', function() {
+	}).on('click', '[data-attachment-max]', function() {
 		var $this	= $(this),
-			max		= + $this.attr('data-fileupload-max');
-		if(max > 0 && $this.prevAll('.admin-fileuploads').length >= max) {
+			max		= + $this.attr('data-attachment-max');
+		if(max > 0 && $this.prevAll('.admin-attachments').length >= max) {
 			$.alert('最多只能添加' + max + '张图片', 3);
 			return false;
 		}
 	});
-	$('.J-admin-fileupload').each(function() {
+	$('.J-admin-attachment').each(function() {
 		var $this	= $(this),
 			$hidden	= $this.find('input[type=hidden]'),
 			$file	= $this.find('input[type=file]'),
-			data	= {original: $hidden.val()};
-		if(data.original) {
-			data['t' + $file.attr('data-show')] = $hidden.attr('data-thumb');
-			_setData.call($file.get(0), data);
-		}
+			data	= {'id': $hidden.val()};
+		data && _setData.call($file.get(0), data);
 	});
 	function _new(data) {
 		var $this	= $(this),
 			$parent	= $this.parent(),
-			max		= + $parent.attr('data-fileupload-max');
-			$new 	= $parent.clone().removeAttr('data-fileupload-max').removeClass('glyphicon-plus').addClass('glyphicon-picture admin-fileuploads');
+			max		= + $parent.attr('data-attachment-max');
+			$new 	= $parent.clone().removeAttr('data-attachment-max').removeClass('glyphicon-plus').addClass('glyphicon-picture admin-attachments');
 		_setData.call($new.find('input[type=file]').get(0), data, true);
 		$parent.before($new);
-		max > 0 && $parent.siblings('.admin-fileuploads').length >= max && $parent.hide();
+		max > 0 && $parent.siblings('.admin-attachments').length >= max && $parent.hide();
 	}
 	function _setData(data, isNew) {
 		var $this		= $(this),
 			$parent		= $this.parent(),
 			$hidden		= $parent.find('input[type=hidden]'),
-			$img		= $parent.find('img'),
-			thumb		= data['t' + $this.attr('data-show')];
+			$img		= $parent.find('img');
 		if(!$hidden.length) {
-			$hidden = $('<input type="hidden" name="' + $this.attr('data-fileupload') + '" data-thumb="' + thumb + '" />').appendTo($parent);
+			$hidden = $('<input type="hidden" name="' + $this.attr('data-attachment-upload') + '" />').appendTo($parent);
 		}
 		if(!$img.length) {
 			$img = $('<img />').appendTo($parent);
@@ -244,8 +240,8 @@
 		if(!$parent.find('i').length) {
 			$parent.append('<i class="glyphicon glyphicon-remove"></i>');
 		}
-		$hidden.val(data.original);
-		$img.attr('src', thumb);
+		$hidden.val(data.id);
+		$img.attr('src', $this.attr('data-attachment-load-action') + '?id=' + data.id);
 		isNew && $this.remove();
 	}
 })(jQuery, document);
