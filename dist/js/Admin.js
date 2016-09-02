@@ -201,7 +201,7 @@
 			return false;
 		}
 		$parent.find('input[type=hidden]').val('');
-		$parent.find('img, i').remove();
+		$parent.find('img, i, p').remove();
 	}).on('click', '[data-attachment-max]', function() {
 		var $this	= $(this),
 			max		= + $this.attr('data-attachment-max');
@@ -214,8 +214,9 @@
 		var $this	= $(this),
 			$hidden	= $this.find('input[type=hidden]'),
 			$file	= $this.find('input[type=file]'),
-			data	= {'id': $hidden.val()};
-		data && _setData.call($file.get(0), data);
+			data	= {id: $hidden.val(), name: $hidden.attr('data-name')};
+		data.id && _setData.call($file.get(0), data);
+		$this.hasClass('admin-attachment-name') && $this.append('<a href="javascript:;">点击上传文件</a>');
 	});
 	function _new(data) {
 		var $this	= $(this),
@@ -230,18 +231,29 @@
 		var $this		= $(this),
 			$parent		= $this.parent(),
 			$hidden		= $parent.find('input[type=hidden]'),
-			$img		= $parent.find('img');
+			$img		= $parent.find('img'),
+			$text		= $parent.find('p'),
+			$button		= $parent.find('a'),
+			notImg		= $parent.hasClass('admin-attachment-name');
 		if(!$hidden.length) {
 			$hidden = $('<input type="hidden" name="' + $this.attr('data-attachment-upload') + '" />').appendTo($parent);
 		}
-		if(!$img.length) {
+		if(!notImg && !$img.length) {
 			$img = $('<img />').appendTo($parent);
 		}
 		if(!$parent.find('i').length) {
 			$parent.append('<i class="glyphicon glyphicon-remove"></i>');
 		}
+		if(notImg && !$text.length) {
+			$text = $('<p></p>').appendTo($parent);
+		}
 		$hidden.val(data.id);
-		$img.attr('src', $this.attr('data-attachment-load-action') + '?id=' + data.id);
+		if(notImg) {
+			$hidden.attr('data-name', data.name);
+			$text.html(data.name);
+		} else {
+			$img.attr('src', $this.attr('data-attachment-load-action') + '?id=' + data.id);
+		}
 		isNew && $this.remove();
 	}
 })(jQuery, document);

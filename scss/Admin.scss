@@ -183,6 +183,8 @@ body{font-family:'\5FAE\8F6F\96C5\9ED1',microsoft yahei,'helvetica neue',helveti
 .admin-form textarea{resize:none;}
 .admin-form input[type=file]{margin-top:4px;}
 .admin-form .thumbnail{padding:0;margin-bottom:15px;border:0;border-radius:0;-webkit-transition:none;transition:none;}
+.admin-form .selection-name{padding-left:5px;}
+.admin-form .selection-name i{font-size:12px;margin-right:5px;cursor:pointer;}
 
 /* admin-attachment */
 .admin-attachment{position:relative;overflow:hidden;border:1px solid #ddd;text-align:center;width:82px;height:82px;line-height:80px;}
@@ -195,13 +197,20 @@ body{font-family:'\5FAE\8F6F\96C5\9ED1',microsoft yahei,'helvetica neue',helveti
 .admin-attachment:before{font-size:40px;position:relative;z-index:1;color:#888;}
 .admin-attachment i:hover,
 .admin-attachment:hover:before{color:#666;}
+.admin-attachment-name{width:auto;height:34px;border:0;text-align:left;}
+.admin-attachment-name a,
+.admin-attachment-name p,
+.admin-attachment-name i{height:34px;line-height:34px;}
+.admin-attachment-name a{z-index:1;position:absolute;left:0;top:0;right:0;bottom:0;}
+.admin-attachment-name p{overflow:hidden;margin:0;padding:0;position:relative;z-index:3;background-color:#fff;}
+.admin-attachment-name i{position:relative;left:auto;top:auto;right:auto;bottom:auto;float:left;padding-right:10px;background-color:#fff;}
 .admin-attachments{margin:0 10px 5px 0;float:left;}
 
 /* admin-image-limit */
 .admin-image-limit{max-width:100%;}
 
 /* admin-loading */
-.admin-loading{font-family:'Glyphicons Halflings';position:relative;overflow:hidden;}
+.admin-loading{font-family:'Glyphicons Halflings';position:relative;overflow:hidden;min-height:160px;}
 .admin-loading:before{content:'\e031';color:#888;font-size:28px;width:40px;height:40px;line-height:40px;text-align:center;position:absolute;left:50%;top:50%;margin:-20px 0 0 -20px;-webkit-animation:loading 1s linear infinite;animation:loading 1s linear infinite;}
 @-webkit-keyframes 'loading'{
 	0%{-webkit-transform:rotate(0);}

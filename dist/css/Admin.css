@@ -497,6 +497,14 @@ body {
   -webkit-transition: none;
   transition: none; }
 
+.admin-form .selection-name {
+  padding-left: 5px; }
+
+.admin-form .selection-name i {
+  font-size: 12px;
+  margin-right: 5px;
+  cursor: pointer; }
+
 /* admin-attachment */
 .admin-attachment {
   position: relative;
@@ -549,6 +557,44 @@ body {
 .admin-attachment:hover:before {
   color: #666; }
 
+.admin-attachment-name {
+  width: auto;
+  height: 34px;
+  border: 0;
+  text-align: left; }
+
+.admin-attachment-name a,
+.admin-attachment-name p,
+.admin-attachment-name i {
+  height: 34px;
+  line-height: 34px; }
+
+.admin-attachment-name a {
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0; }
+
+.admin-attachment-name p {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 3;
+  background-color: #fff; }
+
+.admin-attachment-name i {
+  position: relative;
+  left: auto;
+  top: auto;
+  right: auto;
+  bottom: auto;
+  float: left;
+  padding-right: 10px;
+  background-color: #fff; }
+
 .admin-attachments {
   margin: 0 10px 5px 0;
   float: left; }
@@ -561,7 +607,8 @@ body {
 .admin-loading {
   font-family: 'Glyphicons Halflings';
   position: relative;
-  overflow: hidden; }
+  overflow: hidden;
+  min-height: 160px; }
 
 .admin-loading:before {
   content: '\e031';
