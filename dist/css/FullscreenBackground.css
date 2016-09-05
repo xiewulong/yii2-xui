@@ -5,28 +5,10 @@
  * version: 0.0.1
  */
 /* x-fullscreen-bg */
-.x-fullscreen-bg {
-  position: fixed;
-  background-color: #000;
-  top: 0;
-  left: 50%;
-  z-index: 0;
-  height: 200%;
-  width: 1600px;
-  margin-left: -800px; }
+.x-fullscreen-bg { position: fixed; background-color: #000; top: 0; left: 50%; z-index: 0; height: 200%; width: 1600px; margin-left: -800px; }
 
-.x-fullscreen-bg img {
-  display: block;
-  margin: auto;
-  min-width: 50%;
-  min-height: 50%;
-  opacity: 0;
-  filter: alpha(opacity=0);
-  pointer-events: none; }
+.x-fullscreen-bg img { display: block; margin: auto; min-width: 50%; min-height: 50%; opacity: 0; filter: alpha(opacity=0); pointer-events: none; }
 
-@media (min-width: 768px) {
-  .x-fullscreen-bg {
-    width: 200%;
-    margin-left: -100%; } }
+@media (min-width: 768px) { .x-fullscreen-bg { width: 200%; margin-left: -100%; } }
 
 /*# sourceMappingURL=FullscreenBackground.css.map */

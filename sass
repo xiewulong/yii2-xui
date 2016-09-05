@@ -1,0 +1,31 @@
+#!/bin/bash
+
+dir=$(cd `dirname $0`; pwd)
+
+function compress() {
+	sass --scss --style compact $1.scss $2.css
+	sass --scss --style compressed $1.scss $2.min.css
+}
+
+case $1 in
+
+	release)
+		compress $dir/scss/Admin $dir/dist/css/Admin
+		compress $dir/scss/BackTop $dir/dist/css/BackTop
+		compress $dir/scss/FullscreenBackground $dir/dist/css/FullscreenBackground
+		compress $dir/scss/TopTips $dir/dist/css/TopTips
+		;;
+
+	watch)
+		nohup sass --scss --style expanded \
+			--watch $dir/scss:$dir/dist/css \
+			> $dir/sass.out \
+			&
+		;;
+
+	*)
+		echo "Usage: $0 {release|watch}"
+		exit 1
+		;;
+
+esac

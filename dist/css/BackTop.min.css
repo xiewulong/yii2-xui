@@ -1,0 +1,7 @@
+/*!
+ * back top
+ * xiewulong <xiewulong@vip.qq.com>
+ * create: 2015/1/15
+ * version: 0.0.1
+ */.x-backtop{position:fixed;bottom:20px;right:20px;text-align:center;z-index:999999;color:#fff;background-color:#000;opacity:0;filter:alpha(opacity=0);width:40px;height:40px;line-height:40px;font-size:20px;cursor:pointer;border-radius:4px;-webkit-transition:all .4s ease-out;transition:all .4s ease-out;pointer-events:none}.x-backtop.show{opacity:.5;filter:alpha(opacity=50);pointer-events:auto}.x-backtop.show:hover{opacity:.8;filter:alpha(opacity=100)}
+/*# sourceMappingURL=BackTop.min.css.map */
