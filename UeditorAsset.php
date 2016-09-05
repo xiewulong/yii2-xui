@@ -5,22 +5,27 @@
  * https://github.com/xiewulong/yii2-xui
  * https://raw.githubusercontent.com/xiewulong/yii2-xui/master/LICENSE
  * create: 2015/3/15
- * update: 2016/8/7
+ * update: 2016/9/5
  * since: 0.0.1
  */
 
 namespace yii\xui;
 
 use Yii;
-use yii\web\AssetBundle;
+use yii\components\AssetBundle;
 
 class UeditorAsset extends AssetBundle {
 
-	public $sourcePath = '@yii/xui/dist';
+	public $sourcePath = '@yii/xui/dist/plugins/ueditor';
 
 	public $js = [
-		'plugins/ueditor/ueditor.config.js',
-		'plugins/ueditor/ueditor.all.min.js',
+		'ueditor.config.js',
 	];
+
+	public function init() {
+		parent::init();
+
+		$this->js[] = 'ueditor.all' . $this->minimal . '.js';
+	}
 
 }

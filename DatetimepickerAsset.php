@@ -5,31 +5,29 @@
  * https://github.com/xiewulong/yii2-xui
  * https://raw.githubusercontent.com/xiewulong/yii2-xui/master/LICENSE
  * create: 2015/1/23
- * update: 2016/8/7
+ * update: 2016/9/5
  * since: 0.0.1
  */
 
 namespace yii\xui;
 
 use Yii;
-use yii\web\AssetBundle;
+use yii\components\AssetBundle;
 
 class DatetimepickerAsset extends AssetBundle {
 
 	public $sourcePath = '@bower/smalot-bootstrap-datetimepicker';
 
-	public $css = [
-		'css/bootstrap-datetimepicker.min.css',
-	];
-
-	public $js = [
-		'js/bootstrap-datetimepicker.min.js',
-	];
-
 	public $depends = [
-		'yii\web\JqueryAsset',
-		'yii\bootstrap\BootstrapPluginAsset',
+		'yii\xui\BootstrapAsset',
 	];
+
+	public function init() {
+		parent::init();
+
+		$this->css[] = 'css/bootstrap-datetimepicker' . $this->minimal . '.css';
+		$this->js[] = 'js/bootstrap-datetimepicker' . $this->minimal . '.js';
+	}
 
 	public function addLanguage($language) {
 		$this->js[] = 'js/locales/bootstrap-datetimepicker.' . $language . '.js';

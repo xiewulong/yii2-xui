@@ -5,29 +5,28 @@
  * https://github.com/xiewulong/yii2-xui
  * https://raw.githubusercontent.com/xiewulong/yii2-xui/master/LICENSE
  * create: 2015/9/22
- * update: 2016/8/7
+ * update: 2016/9/5
  * since: 0.0.1
  */
 
 namespace yii\xui;
 
 use Yii;
-use yii\web\AssetBundle;
+use yii\components\AssetBundle;
 
 class BootstrapAsset extends AssetBundle {
 
 	public $sourcePath = '@bower/bootstrap/dist';
 
-	public $css = [
-		'css/bootstrap.min.css',
-	];
-
-	public $js = [
-		'js/bootstrap.min.js',
-	];
-
 	public $depends = [
 		'yii\xui\JqueryAsset',
 	];
+
+	public function init() {
+		parent::init();
+
+		$this->css[] = 'css/bootstrap' . $this->minimal . '.css';
+		$this->js[] = 'js/bootstrap' . $this->minimal . '.js';
+	}
 
 }
