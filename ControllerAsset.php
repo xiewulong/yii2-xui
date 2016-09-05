@@ -5,14 +5,14 @@
  * https://github.com/xiewulong/yii2-xui
  * https://raw.githubusercontent.com/xiewulong/yii2-xui/master/LICENSE
  * create: 2016/8/2
- * update: 2016/8/7
+ * update: 2016/9/5
  * since: 0.0.2
  */
 
 namespace yii\xui;
 
 use Yii;
-use yii\web\AssetBundle;
+use yii\components\AssetBundle;
 
 class ControllerAsset extends AssetBundle {
 
@@ -24,7 +24,7 @@ class ControllerAsset extends AssetBundle {
 		parent::init();
 
 		$filename = \Yii::$app->controller->id;
-		$this->css[] = 'css/' . $filename . '.css';
+		$this->css[] = 'css/' . $filename . $this->minimal . '.css';
 		$this->js[] = 'js/' . $filename . '.js';
 	}
 
