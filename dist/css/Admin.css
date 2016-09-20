@@ -1,9 +1,4 @@
-/*!
- * admin
- * xiewulong <xiewulong@vip.qq.com>
- * create: 2016/8/2
- * version: 0.0.2
- */
+/*! admin xiewulong <xiewulong@vip.qq.com> create: 2016/8/2 version: 0.0.2 */
 /* bootstrap reset */
 a:hover, a:focus { text-decoration: none; }
 
@@ -256,8 +251,10 @@ body { font-family: '\5FAE\8F6F\96C5\9ED1',microsoft yahei,'helvetica neue',helv
 
 @-webkit-keyframes 'loading' { 0% { -webkit-transform: rotate(0); }
   100% { -webkit-transform: rotate(360deg); } }
+
 @keyframes 'loading' { 0% { transform: rotate(0); }
   100% { transform: rotate(360deg); } }
+
 /* admin-selection */
 .admin-selection .modal-body { min-height: 180px; }
 

@@ -5,7 +5,7 @@
  * https://github.com/xiewulong/yii2-xui
  * https://raw.githubusercontent.com/xiewulong/yii2-xui/master/LICENSE
  * create: 2016/8/2
- * update: 2016/9/5
+ * update: 2016/9/20
  * since: 0.0.2
  */
 
@@ -22,7 +22,7 @@ class AdminAsset extends AssetBundle {
 		parent::init();
 
 		$this->css[] = 'css/Admin' . $this->minimal . '.css';
-		$this->js[] = 'js/Admin.js';
+		$this->js[] = 'js/Admin' . $this->minimal . '.js';
 	}
 
 }

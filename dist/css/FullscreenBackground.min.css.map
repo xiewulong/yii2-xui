@@ -1,7 +1,1 @@
-{
-"version": 3,
-"mappings": "AAAA;;;;;GAKG,AAGH,gBAAgB,CAAC,QAAQ,CAAC,KAAK,CAAC,gBAAgB,CAAC,IAAI,CAAC,GAAG,CAAC,CAAC,CAAC,IAAI,CAAC,GAAG,CAAC,OAAO,CAAC,CAAC,CAAC,MAAM,CAAC,IAAI,CAAC,KAAK,CAAC,MAAM,CAAC,WAAW,CAAC,MAAM,CAC1H,oBAAoB,CAAC,OAAO,CAAC,KAAK,CAAC,MAAM,CAAC,IAAI,CAAC,SAAS,CAAC,GAAG,CAAC,UAAU,CAAC,GAAG,CAAC,OAAO,CAAC,CAAC,CAAC,MAAM,CAAC,gBAAgB,CAAC,cAAc,CAAC,IAAI,CACjI,yBAAwB,CACxB,gBAAgB,CAAC,KAAK,CAAC,IAAI,CAAC,WAAW,CAAC,KAAK",
-"sources": ["../../scss/FullscreenBackground.scss"],
-"names": [],
-"file": "FullscreenBackground.min.css"
-}
+{"version":3,"file":"FullscreenBackground.min.css","sources":["FullscreenBackground.scss"],"sourcesContent":["/*!\n * fullscreen background\n * xiewulong <xiewulong@vip.qq.com>\n * create: 2015/1/13\n * version: 0.0.1\n */\n\n/* x-fullscreen-bg */\n.x-fullscreen-bg{position:fixed;background-color:#000;top:0;left:50%;z-index:0;height:200%;width:1600px;margin-left:-800px;}\n.x-fullscreen-bg img{display:block;margin:auto;min-width:50%;min-height:50%;opacity:0;filter:alpha(opacity=0);pointer-events:none;}\n@media (min-width:768px){\n.x-fullscreen-bg{width:200%;margin-left:-100%;}\n}\n"],"mappings":"AAAA;;;;;GAKG,AAGH,AAAA,gBAAgB,AAAA,CAAC,QAAQ,CAAC,KAAM,CAAC,gBAAgB,CAAC,IAAK,CAAC,GAAG,CAAC,CAAE,CAAC,IAAI,CAAC,GAAI,CAAC,OAAO,CAAC,CAAE,CAAC,MAAM,CAAC,IAAK,CAAC,KAAK,CAAC,MAAO,CAAC,WAAW,CAAC,MAAO,CAAG,AACrI,AAAiB,gBAAD,CAAC,GAAG,AAAA,CAAC,OAAO,CAAC,KAAM,CAAC,MAAM,CAAC,IAAK,CAAC,SAAS,CAAC,GAAI,CAAC,UAAU,CAAC,GAAI,CAAC,OAAO,CAAC,CAAE,CAAC,MAAM,CAAC,gBAAK,CAAY,cAAc,CAAC,IAAK,CAAG,AAC1I,MAAM,EAAL,SAAS,EAAE,KAAK,EACjB,AAAA,gBAAgB,AAAA,CAAC,KAAK,CAAC,IAAK,CAAC,WAAW,CAAC,KAAM,CAAG","names":[],"sourceRoot":"/source/"}

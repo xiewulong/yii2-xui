@@ -1,9 +1,4 @@
-/*!
- * top tips
- * xiewulong <xiewulong@vip.qq.com>
- * create: 2015/1/15
- * version: 0.0.1
- */
+/*! top tips xiewulong <xiewulong@vip.qq.com> create: 2015/1/15 version: 0.0.1 */
 /* x-tips */
 .x-tips { position: fixed; top: 0; left: 0; right: 0; text-align: center; z-index: 999999; pointer-events: none; display: none; }
 

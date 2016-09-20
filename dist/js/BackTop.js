@@ -1,3 +1,5 @@
+'use strict';
+
 /*!
  * back top
  * xiewulong <xiewulong@vip.qq.com>
@@ -5,20 +7,20 @@
  * version: 0.0.1
  */
 
-(function($, window, document, undefined) {
-	var _backTop;
+(function ($, window, document, undefined) {
+	var _backTop = void 0;
 
-	(_backTop = function(classname) {
-		if(!$(classname).length) return;
-		var _isTop,
-			$win	= $(window),
-			$target = $(classname);
+	(_backTop = function _backTop(classname) {
+		if (!$(classname).length) return;
+		var _isTop = void 0,
+		    $win = $(window),
+		    $target = $(classname);
 
-		$(document).on('click', classname, function() {
-			$('html, body').animate({scrollTop: 0});
+		$(document).on('click', classname, function () {
+			$('html, body').animate({ scrollTop: 0 });
 		});
 
-		(_isTop = function() {
+		(_isTop = function _isTop() {
 			$target[$win.scrollTop() ? 'addClass' : 'removeClass']('show');
 		})();
 
@@ -27,3 +29,4 @@
 
 	$.backTop = _backTop;
 })(jQuery, window, document);
+//# sourceMappingURL=BackTop.js.map

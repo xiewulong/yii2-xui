@@ -4,4 +4,5 @@
  * create: 2015/1/15
  * version: 0.0.1
  */.x-tips{position:fixed;top:0;left:0;right:0;text-align:center;z-index:999999;pointer-events:none;display:none}.x-tips p{display:inline-block;padding:5px 20px;margin:0;min-width:10%;border-style:solid;border-width:0 1px 1px;border-radius:0 0 4px 4px;opacity:.9;filter:alpha(opacity=90)}.x-tips-error p{color:#a94442;background-color:#f2dede;border-color:#ebccd1}.x-tips-success p{color:#3c763d;background-color:#dff0d8;border-color:#d6e9c6}
+
 /*# sourceMappingURL=TopTips.min.css.map */

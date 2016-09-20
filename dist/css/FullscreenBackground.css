@@ -1,9 +1,4 @@
-/*!
- * fullscreen background
- * xiewulong <xiewulong@vip.qq.com>
- * create: 2015/1/13
- * version: 0.0.1
- */
+/*! fullscreen background xiewulong <xiewulong@vip.qq.com> create: 2015/1/13 version: 0.0.1 */
 /* x-fullscreen-bg */
 .x-fullscreen-bg { position: fixed; background-color: #000; top: 0; left: 50%; z-index: 0; height: 200%; width: 1600px; margin-left: -800px; }
 
