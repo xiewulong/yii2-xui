@@ -52,7 +52,7 @@ body { font-family: '\5FAE\8F6F\96C5\9ED1',microsoft yahei,'helvetica neue',helv
 
 .admin-header .menu ul li .text i { margin-right: 5px; }
 
-.admin-header .menu ul li .text i.glyphicon-triangle-bottom { font-size: 10px; margin: 0 0 0 5px; -webkit-transform: scale(0.7); transform: scale(0.7); -webkit-transition: transform .2s ease-out; transition: transform .2s ease-out; }
+.admin-header .menu ul li .text i.glyphicon-triangle-bottom { font-size: 10px; margin: 0 0 0 5px; -webkit-transform: scale(0.7); transform: scale(0.7); -webkit-transition: transform .2s ease-out; -webkit-transition: -webkit-transform .2s ease-out; transition: -webkit-transform .2s ease-out; transition: transform .2s ease-out; transition: transform .2s ease-out, -webkit-transform .2s ease-out; }
 
 .admin-header .menu ul.main > li { float: left; position: relative; }
 
@@ -93,7 +93,7 @@ body { font-family: '\5FAE\8F6F\96C5\9ED1',microsoft yahei,'helvetica neue',helv
 
 .admin-sidebar .sidebar-control { color: #aeb9c2; background-color: #394555; width: 180px; height: 30px; line-height: 30px; cursor: pointer; text-align: center; font-size: 12px; -webkit-transition: width .2s ease-out; transition: width .2s ease-out; }
 
-.admin-sidebar .sidebar-control .glyphicon { -webkit-transform: rotate(-90deg); transform: rotate(-90deg); -webkit-transition: transform .2s ease-out; transition: transform .2s ease-out; }
+.admin-sidebar .sidebar-control .glyphicon { -webkit-transform: rotate(-90deg); transform: rotate(-90deg); -webkit-transition: transform .2s ease-out; -webkit-transition: -webkit-transform .2s ease-out; transition: -webkit-transform .2s ease-out; transition: transform .2s ease-out; transition: transform .2s ease-out, -webkit-transform .2s ease-out; }
 
 .admin-sidebar .sidebar-control:hover { background-color: #37424f; }
 
@@ -252,8 +252,8 @@ body { font-family: '\5FAE\8F6F\96C5\9ED1',microsoft yahei,'helvetica neue',helv
 @-webkit-keyframes 'loading' { 0% { -webkit-transform: rotate(0); }
   100% { -webkit-transform: rotate(360deg); } }
 
-@keyframes 'loading' { 0% { transform: rotate(0); }
-  100% { transform: rotate(360deg); } }
+@keyframes 'loading' { 0% { -webkit-transform: rotate(0); transform: rotate(0); }
+  100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); } }
 
 /* admin-selection */
 .admin-selection .modal-body { min-height: 180px; }
