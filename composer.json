@@ -18,12 +18,13 @@
 	"require": {
 		"yiisoft/yii2": "*",
 		"yiisoft/yii2-bootstrap": "*",
-		"bower-asset/jquery": "1.* | *",
 		"bower-asset/bootstrap": "*",
 		"bower-asset/font-awesome": "*",
 		"bower-asset/html5shiv": "*",
+		"bower-asset/jquery": "*",
 		"bower-asset/respond-minmax": "*",
 		"bower-asset/smalot-bootstrap-datetimepicker": "*",
+		"bower-asset/zeptojs": "*",
 		"tinymce/tinymce": "*",
 		"xiewulong/jqueryx": "*",
 		"xiewulong/samples": "*"
