@@ -1,6 +1,6 @@
 <?php
 /*!
- * yii - widget - ul|ol item list
+ * yii - widget - item list
  * xiewulong <xiewulong@vip.qq.com>
  * https://github.com/xiewulong/yii2-xui
  * https://raw.githubusercontent.com/xiewulong/yii2-xui/master/LICENSE
@@ -15,7 +15,7 @@ use Yii;
 use yii\base\Widget;
 use yii\helpers\Html;
 
-class List extends Widget {
+class Ul extends Widget {
 
 	public $tag = 'div';
 
