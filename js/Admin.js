@@ -305,3 +305,229 @@
 	}
 
 })(jQuery, document);
+
+// tags
+(($, document, undefined) => {
+
+	class Tags {
+
+		constructor(obj) {
+			this.$obj = $(obj);
+			this.$list = this.$obj.find('p');
+			this.$new = this.$obj.find('.new');
+			this.$button = this.$new.find('button');
+			this.url = this.$obj.attr('data-tags');
+			this.inputTemplate = '<input type="text" class="form-control" />';
+			this.ids = (() => {
+				let ids = [];
+				this.$list.find('span input[type=hidden]').each(function() {
+					ids.push(+ this.value);
+				});
+
+				return ids;
+			})();
+
+			this.events();
+		}
+
+		events() {
+			let _this = this;
+			this.$obj.on('click', '.new button', () => {
+				this.newInput();
+				this.$button.hide();
+				this.$input.appendTo(this.$new).focus();
+			}).on('keydown', '.new input', (e) => {
+				switch(e.originalEvent.keyCode) {
+					case 13:
+						return this.submit();
+						break;
+					case 27:
+						this.cancel();
+						break;
+					case 38:
+						this.press(false);
+						break;
+					case 40:
+						this.press(true);
+						break;
+				}
+			}).on('focus input', '.new input', () => {
+				this.like();
+			}).on('click', 'p span i', function() {
+				let $span	= $(this).parent('span'),
+					index	= _this.ids.indexOf(+ $span.find('input[type=hidden]').val());
+
+				index >= 0 && _this.ids.splice(index, 1);
+
+				$span.fadeOut(function() {
+					$span.remove();
+				});
+			});
+
+			$(document).on('click', () => {
+				this.clearDropdown();
+			});
+		}
+
+		unselect() {
+			this.selectedId = null;
+		}
+
+		select($target) {
+			this.selectedId = $target.addClass('selected').attr('data-id');
+		}
+
+		press(down) {
+			if(!this.$dropdown) return;
+
+			let $target,
+				classname	= 'selected',
+				sibling		= down ? 'next' : 'prev',
+				$selected	= this.$dropdown.find('li.' + classname),
+				$first		= this.$dropdown.find('li:' + (down ? 'first' : 'last'));
+
+			if($selected.length) {
+				$selected.removeClass(classname);
+
+				if($selected[sibling]('li').length) {
+					$target = $selected[sibling]('li');
+				} else {
+					$target = $first;
+				}
+			} else {
+				$target = $first;
+			}
+
+			this.select($target);
+		}
+
+		clearDropdown() {
+			if(!this.$dropdown) return;
+
+			this.$dropdown.remove();
+			this.$dropdown = null;
+			this.pressDownIndex = 0;
+			this.unselect();
+		}
+
+		dropdown(tags) {
+			let len = tags.length;
+
+			if(!len) {
+				this.clearDropdown();
+
+				return;
+			}
+
+			this.unselect();
+
+			let tag,
+				list	= [],
+				css		= this.$input.offset(),
+				value	= this.$input.val(),
+				_this	= this;
+
+			css.top += this.$input.get(0).offsetHeight;
+
+			this.$dropdown = this.$dropdown || $('<ul class="admin-tags-like-list">').appendTo('body').on('click', 'li', function() {
+				_this.addById($(this).attr('data-id'));
+			}).on('mouseenter', 'li', function() {
+				_this.selectedId = $(this).addClass('selected').siblings('.selected').removeClass('selected').end().attr('data-id');
+			});
+			this.$dropdown.css(css);
+
+			this.tags = {};
+
+			for(let i = 0; i < len; i++) {
+				tag = tags[i];
+				if(this.exists(tag.id)) continue;
+				let current = tag.name == value;
+				list.push('<li data-id="' + tag.id + '"' + (current ? ' class="selected"' : null) + '>' + tag.name + '</li>');
+				this.tags[tag.id] = tag;
+				if(current) {
+					this.selectedId = tag.id;
+				}
+			}
+
+			this.$dropdown.html(list.join(''));
+		}
+
+		like() {
+			this.selected = null;
+
+			this.$input.val() ? this.post(true) : this.clearDropdown();
+		}
+
+		add(tag) {
+			if(this.exists(tag.id)) {
+				this.$input.prop('disabled', false);
+				$.alert('标签已添加', 3);
+
+				return;
+			}
+
+			this.ids.push(tag.id);
+			this.$list.append(	'<span>' +
+									'<input type="hidden" name="tag_ids[]" value="' + tag.id + '">\n' +
+									'<strong>' + tag.name + '</strong>\n' +
+									'<i class="glyphicon glyphicon-remove"></i>\n' +
+								'</span>');
+			this.cancel();
+		}
+
+		exists(id) {
+			return $.inArray(id, this.ids) >= 0;
+		}
+
+		addById(id) {
+			this.tags[id] && this.add(this.tags[id]);
+		}
+
+		submit() {
+			if(this.selectedId) {
+				this.addById(this.selectedId);
+			} else if(this.$input.val()) {
+				this.$input.prop('disabled', true);
+				this.post();
+			} else {
+				$.alert('请输入标签名', 3);
+			}
+
+			return false;
+		}
+
+		cancel() {
+			this.$input.remove();
+			this.$button.show();
+			this.clearDropdown();
+		}
+
+		newInput() {
+			this.$input = $(this.inputTemplate);
+		}
+
+		post(like) {
+			$.ajax({
+				url: this.url,
+				data: $.csrf({
+					name: this.$input.val(),
+					like: like,
+				}),
+				method: 'post',
+				dataType: 'json',
+				success: (d) => {
+					if(d.error) {
+						return;
+					}
+					this[like ? 'dropdown' : 'add'](d.data);
+				},
+			});
+		}
+
+	}
+
+	$('[data-tags]').each(function() {
+		new Tags(this);
+	});
+
+})(jQuery, document);

@@ -52,7 +52,7 @@ body { font-family: '\5FAE\8F6F\96C5\9ED1',microsoft yahei,'helvetica neue',helv
 
 .admin-header .menu ul li .text i { margin-right: 5px; }
 
-.admin-header .menu ul li .text i.glyphicon-triangle-bottom { font-size: 10px; margin: 0 0 0 5px; -webkit-transform: scale(0.7); transform: scale(0.7); -webkit-transition: transform .2s ease-out; -webkit-transition: -webkit-transform .2s ease-out; transition: -webkit-transform .2s ease-out; transition: transform .2s ease-out; transition: transform .2s ease-out, -webkit-transform .2s ease-out; }
+.admin-header .menu ul li .text i.glyphicon-triangle-bottom { font-size: 10px; margin: 0 0 0 5px; -webkit-transform: scale(0.7); transform: scale(0.7); -webkit-transition: -webkit-transform .2s ease-out; transition: -webkit-transform .2s ease-out; transition: transform .2s ease-out; transition: transform .2s ease-out, -webkit-transform .2s ease-out; }
 
 .admin-header .menu ul.main > li { float: left; position: relative; }
 
@@ -93,7 +93,7 @@ body { font-family: '\5FAE\8F6F\96C5\9ED1',microsoft yahei,'helvetica neue',helv
 
 .admin-sidebar .sidebar-control { color: #aeb9c2; background-color: #394555; width: 180px; height: 30px; line-height: 30px; cursor: pointer; text-align: center; font-size: 12px; -webkit-transition: width .2s ease-out; transition: width .2s ease-out; }
 
-.admin-sidebar .sidebar-control .glyphicon { -webkit-transform: rotate(-90deg); transform: rotate(-90deg); -webkit-transition: transform .2s ease-out; -webkit-transition: -webkit-transform .2s ease-out; transition: -webkit-transform .2s ease-out; transition: transform .2s ease-out; transition: transform .2s ease-out, -webkit-transform .2s ease-out; }
+.admin-sidebar .sidebar-control .glyphicon { -webkit-transform: rotate(-90deg); transform: rotate(-90deg); -webkit-transition: -webkit-transform .2s ease-out; transition: -webkit-transform .2s ease-out; transition: transform .2s ease-out; transition: transform .2s ease-out, -webkit-transform .2s ease-out; }
 
 .admin-sidebar .sidebar-control:hover { background-color: #37424f; }
 
@@ -249,10 +249,10 @@ body { font-family: '\5FAE\8F6F\96C5\9ED1',microsoft yahei,'helvetica neue',helv
 
 .admin-loading:before { content: '\e031'; color: #888; font-size: 28px; width: 40px; height: 40px; line-height: 40px; text-align: center; position: absolute; left: 50%; top: 50%; margin: -20px 0 0 -20px; -webkit-animation: loading 1s linear infinite; animation: loading 1s linear infinite; }
 
-@-webkit-keyframes 'loading' { 0% { -webkit-transform: rotate(0); }
-  100% { -webkit-transform: rotate(360deg); } }
+@-webkit-keyframes loading { 0% { -webkit-transform: rotate(0); transform: rotate(0); }
+  100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); } }
 
-@keyframes 'loading' { 0% { -webkit-transform: rotate(0); transform: rotate(0); }
+@keyframes loading { 0% { -webkit-transform: rotate(0); transform: rotate(0); }
   100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); } }
 
 /* admin-selection */
@@ -271,5 +271,26 @@ body { font-family: '\5FAE\8F6F\96C5\9ED1',microsoft yahei,'helvetica neue',helv
 .admin-selection ul li.unfold > ul { display: block; }
 
 .admin-selection ul ul { padding-left: 15px; display: none; }
+
+/* admin-tags */
+.admin-tags { overflow: hidden; }
+
+.admin-tags p { margin: 0; float: left; }
+
+.admin-tags p span { float: left; height: 31px; line-height: 31px; background-color: #09c; border-radius: 16px; padding: 0 15px; color: #fff; overflow: hidden; margin: 0 5px 5px 0; cursor: default; }
+
+.admin-tags p span strong { font-weight: 500; }
+
+.admin-tags p span i { font-size: 12px; cursor: pointer; }
+
+.admin-tags .new { float: left; height: 34px; }
+
+.admin-tags .new .form-control { width: 80px; padding: 4px 8px; }
+
+.admin-tags-like-list { position: absolute; background-color: #f8f8f8; border: 1px solid #f8f8f8; padding: 0; list-style: none; min-width: 80px; z-index: 99; }
+
+.admin-tags-like-list li { padding: 4px 8px; cursor: pointer; }
+
+.admin-tags-like-list li.selected { background-color: #09c; color: #fff; }
 
 /*# sourceMappingURL=Admin.css.map */

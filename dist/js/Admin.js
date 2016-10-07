@@ -299,4 +299,248 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 		isNew && $this.remove();
 	}
 })(jQuery, document);
+
+// tags
+(function ($, document, undefined) {
+	var Tags = function () {
+		function Tags(obj) {
+			var _this4 = this;
+
+			_classCallCheck(this, Tags);
+
+			this.$obj = $(obj);
+			this.$list = this.$obj.find('p');
+			this.$new = this.$obj.find('.new');
+			this.$button = this.$new.find('button');
+			this.url = this.$obj.attr('data-tags');
+			this.inputTemplate = '<input type="text" class="form-control" />';
+			this.ids = function () {
+				var ids = [];
+				_this4.$list.find('span input[type=hidden]').each(function () {
+					ids.push(+this.value);
+				});
+
+				return ids;
+			}();
+
+			this.events();
+		}
+
+		_createClass(Tags, [{
+			key: 'events',
+			value: function events() {
+				var _this5 = this;
+
+				var _this = this;
+				this.$obj.on('click', '.new button', function () {
+					_this5.newInput();
+					_this5.$button.hide();
+					_this5.$input.appendTo(_this5.$new).focus();
+				}).on('keydown', '.new input', function (e) {
+					switch (e.originalEvent.keyCode) {
+						case 13:
+							return _this5.submit();
+							break;
+						case 27:
+							_this5.cancel();
+							break;
+						case 38:
+							_this5.press(false);
+							break;
+						case 40:
+							_this5.press(true);
+							break;
+					}
+				}).on('focus input', '.new input', function () {
+					_this5.like();
+				}).on('click', 'p span i', function () {
+					var $span = $(this).parent('span'),
+					    index = _this.ids.indexOf(+$span.find('input[type=hidden]').val());
+
+					index >= 0 && _this.ids.splice(index, 1);
+
+					$span.fadeOut(function () {
+						$span.remove();
+					});
+				});
+
+				$(document).on('click', function () {
+					_this5.clearDropdown();
+				});
+			}
+		}, {
+			key: 'unselect',
+			value: function unselect() {
+				this.selectedId = null;
+			}
+		}, {
+			key: 'select',
+			value: function select($target) {
+				this.selectedId = $target.addClass('selected').attr('data-id');
+			}
+		}, {
+			key: 'press',
+			value: function press(down) {
+				if (!this.$dropdown) return;
+
+				var $target = void 0,
+				    classname = 'selected',
+				    sibling = down ? 'next' : 'prev',
+				    $selected = this.$dropdown.find('li.' + classname),
+				    $first = this.$dropdown.find('li:' + (down ? 'first' : 'last'));
+
+				if ($selected.length) {
+					$selected.removeClass(classname);
+
+					if ($selected[sibling]('li').length) {
+						$target = $selected[sibling]('li');
+					} else {
+						$target = $first;
+					}
+				} else {
+					$target = $first;
+				}
+
+				this.select($target);
+			}
+		}, {
+			key: 'clearDropdown',
+			value: function clearDropdown() {
+				if (!this.$dropdown) return;
+
+				this.$dropdown.remove();
+				this.$dropdown = null;
+				this.pressDownIndex = 0;
+				this.unselect();
+			}
+		}, {
+			key: 'dropdown',
+			value: function dropdown(tags) {
+				var len = tags.length;
+
+				if (!len) {
+					this.clearDropdown();
+
+					return;
+				}
+
+				this.unselect();
+
+				var tag = void 0,
+				    list = [],
+				    css = this.$input.offset(),
+				    value = this.$input.val(),
+				    _this = this;
+
+				css.top += this.$input.get(0).offsetHeight;
+
+				this.$dropdown = this.$dropdown || $('<ul class="admin-tags-like-list">').appendTo('body').on('click', 'li', function () {
+					_this.addById($(this).attr('data-id'));
+				}).on('mouseenter', 'li', function () {
+					_this.selectedId = $(this).addClass('selected').siblings('.selected').removeClass('selected').end().attr('data-id');
+				});
+				this.$dropdown.css(css);
+
+				this.tags = {};
+
+				for (var i = 0; i < len; i++) {
+					tag = tags[i];
+					if (this.exists(tag.id)) continue;
+					var current = tag.name == value;
+					list.push('<li data-id="' + tag.id + '"' + (current ? ' class="selected"' : null) + '>' + tag.name + '</li>');
+					this.tags[tag.id] = tag;
+					if (current) {
+						this.selectedId = tag.id;
+					}
+				}
+
+				this.$dropdown.html(list.join(''));
+			}
+		}, {
+			key: 'like',
+			value: function like() {
+				this.selected = null;
+
+				this.$input.val() ? this.post(true) : this.clearDropdown();
+			}
+		}, {
+			key: 'add',
+			value: function add(tag) {
+				if (this.exists(tag.id)) {
+					this.$input.prop('disabled', false);
+					$.alert('标签已添加', 3);
+
+					return;
+				}
+
+				this.ids.push(tag.id);
+				this.$list.append('<span>' + '<input type="hidden" name="tag_ids[]" value="' + tag.id + '">\n' + '<strong>' + tag.name + '</strong>\n' + '<i class="glyphicon glyphicon-remove"></i>\n' + '</span>');
+				this.cancel();
+			}
+		}, {
+			key: 'exists',
+			value: function exists(id) {
+				return $.inArray(id, this.ids) >= 0;
+			}
+		}, {
+			key: 'addById',
+			value: function addById(id) {
+				this.tags[id] && this.add(this.tags[id]);
+			}
+		}, {
+			key: 'submit',
+			value: function submit() {
+				if (this.selectedId) {
+					this.addById(this.selectedId);
+				} else if (this.$input.val()) {
+					this.$input.prop('disabled', true);
+					this.post();
+				} else {
+					$.alert('请输入标签名', 3);
+				}
+
+				return false;
+			}
+		}, {
+			key: 'cancel',
+			value: function cancel() {
+				this.$input.remove();
+				this.$button.show();
+				this.clearDropdown();
+			}
+		}, {
+			key: 'newInput',
+			value: function newInput() {
+				this.$input = $(this.inputTemplate);
+			}
+		}, {
+			key: 'post',
+			value: function post(like) {
+				var _this6 = this;
+
+				$.ajax({
+					url: this.url,
+					data: $.csrf({
+						name: this.$input.val(),
+						like: like
+					}),
+					method: 'post',
+					dataType: 'json',
+					success: function success(d) {
+						if (d.error) {
+							return;
+						}
+						_this6[like ? 'dropdown' : 'add'](d.data);
+					}
+				});
+			}
+		}]);
+
+		return Tags;
+	}();
+
+	$('[data-tags]').each(function () {
+		new Tags(this);
+	});
+})(jQuery, document);
 //# sourceMappingURL=Admin.js.map
