@@ -260,8 +260,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 	function _new(data) {
 		var $this = $(this),
 		    $parent = $this.parent(),
-		    max = +$parent.attr('data-attachment-max');
-		$new = $parent.clone().removeAttr('data-attachment-max').removeClass('glyphicon-plus').addClass('glyphicon-picture admin-attachments');
+		    max = +$parent.attr('data-attachment-max'),
+		    $new = $parent.clone().removeAttr('data-attachment-max').removeClass('glyphicon-plus').addClass('glyphicon-picture admin-attachments');
 
 		_setData.call($new.find('input[type=file]').get(0), data, true);
 		$parent.before($new);
