@@ -317,6 +317,7 @@
 			this.$new = this.$obj.find('.new');
 			this.$button = this.$new.find('button');
 			this.url = this.$obj.attr('data-tags');
+			this.name = this.$button.attr('data-tag-name');
 			this.inputTemplate = '<input type="text" class="form-control" />';
 			this.ids = (() => {
 				let ids = [];
@@ -468,7 +469,7 @@
 
 			this.ids.push(tag.id);
 			this.$list.append(	'<span>' +
-									'<input type="hidden" name="tag_ids[]" value="' + tag.id + '">\n' +
+									'<input type="hidden" name="' + this.name + '" value="' + tag.id + '">\n' +
 									'<strong>' + tag.name + '</strong>\n' +
 									'<i class="glyphicon glyphicon-remove"></i>\n' +
 								'</span>');
