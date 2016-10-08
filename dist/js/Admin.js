@@ -314,7 +314,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 			this.$button = this.$new.find('button');
 			this.url = this.$obj.attr('data-tags');
 			this.name = this.$button.attr('data-tag-name');
-			this.inputTemplate = '<input type="text" class="form-control" />';
+			this.inputTemplate = '<input type="text" class="form-control" placeholder="请输入标签名" />';
 			this.ids = function () {
 				var ids = [];
 				_this4.$list.find('span input[type=hidden]').each(function () {
@@ -475,7 +475,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 				}
 
 				this.ids.push(tag.id);
-				this.$list.append('<span>' + '<input type="hidden" name="' + this.name + '" value="' + tag.id + '">\n' + '<strong>' + tag.name + '</strong>\n' + '<i class="glyphicon glyphicon-remove"></i>\n' + '</span>');
+				this.$list.append('<span>' + '<input type="hidden" name="' + this.name + '" value="' + tag.id + '" />\n' + '<strong>' + tag.name + '</strong>\n' + '<i class="glyphicon glyphicon-remove"></i>\n' + '</span>');
 				this.cancel();
 			}
 		}, {

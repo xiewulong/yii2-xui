@@ -318,7 +318,7 @@
 			this.$button = this.$new.find('button');
 			this.url = this.$obj.attr('data-tags');
 			this.name = this.$button.attr('data-tag-name');
-			this.inputTemplate = '<input type="text" class="form-control" />';
+			this.inputTemplate = '<input type="text" class="form-control" placeholder="请输入标签名" />';
 			this.ids = (() => {
 				let ids = [];
 				this.$list.find('span input[type=hidden]').each(function() {
@@ -469,7 +469,7 @@
 
 			this.ids.push(tag.id);
 			this.$list.append(	'<span>' +
-									'<input type="hidden" name="' + this.name + '" value="' + tag.id + '">\n' +
+									'<input type="hidden" name="' + this.name + '" value="' + tag.id + '" />\n' +
 									'<strong>' + tag.name + '</strong>\n' +
 									'<i class="glyphicon glyphicon-remove"></i>\n' +
 								'</span>');

@@ -285,7 +285,7 @@ body { font-family: '\5FAE\8F6F\96C5\9ED1',microsoft yahei,'helvetica neue',helv
 
 .admin-tags .new { float: left; height: 34px; }
 
-.admin-tags .new .form-control { width: 80px; padding: 4px 8px; }
+.admin-tags .new .form-control { width: 100px; padding: 4px 8px; }
 
 .admin-tags-like-list { position: absolute; background-color: #f8f8f8; border: 1px solid #f8f8f8; padding: 0; list-style: none; min-width: 80px; z-index: 99; }
 
