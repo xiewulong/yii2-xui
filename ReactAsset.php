@@ -21,7 +21,7 @@ class ReactAsset extends AssetBundle {
 	public function init() {
 		parent::init();
 
-		$this->js[] = 'js/react' . $this->minimal . '.js';
+		$this->js[] = 'react' . $this->minimal . '.js';
 	}
 
 }

@@ -25,7 +25,7 @@ class ReactDomAsset extends AssetBundle {
 	public function init() {
 		parent::init();
 
-		$this->js[] = 'js/react-dom' . $this->minimal . '.js';
+		$this->js[] = 'react-dom' . $this->minimal . '.js';
 	}
 
 }
