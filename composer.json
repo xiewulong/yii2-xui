@@ -19,6 +19,7 @@
 		"yiisoft/yii2": "*",
 		"yiisoft/yii2-bootstrap": "*",
 		"bower-asset/bootstrap": "*",
+		"bower-asset/flux": "*",
 		"bower-asset/font-awesome": "*",
 		"bower-asset/html5shiv": "*",
 		"bower-asset/jquery": "*",
