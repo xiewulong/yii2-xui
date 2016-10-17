@@ -25,6 +25,7 @@
 		"bower-asset/react": "*",
 		"bower-asset/respond-minmax": "*",
 		"bower-asset/smalot-bootstrap-datetimepicker": "*",
+		"bower-asset/weui": "*",
 		"tinymce/tinymce": "*",
 		"xiewulong/jqueryx": "*",
 		"xiewulong/samples": "*"
