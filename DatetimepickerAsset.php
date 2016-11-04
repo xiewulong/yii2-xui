@@ -5,7 +5,7 @@
  * https://github.com/xiewulong/yii2-xui
  * https://raw.githubusercontent.com/xiewulong/yii2-xui/master/LICENSE
  * create: 2015/1/23
- * update: 2016/9/5
+ * update: 2016/11/4
  * since: 0.0.1
  */
 
@@ -26,7 +26,8 @@ class DatetimepickerAsset extends AssetBundle {
 		parent::init();
 
 		$this->css[] = 'css/bootstrap-datetimepicker' . $this->minimal . '.css';
-		$this->js[] = 'js/bootstrap-datetimepicker' . $this->minimal . '.js';
+		// $this->js[] = 'js/bootstrap-datetimepicker' . $this->minimal . '.js';	// bug
+		$this->js[] = 'js/bootstrap-datetimepicker.js';
 	}
 
 	public function addLanguage($language) {
