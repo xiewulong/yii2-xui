@@ -5,7 +5,7 @@
  * https://github.com/xiewulong/yii2-xui
  * https://raw.githubusercontent.com/xiewulong/yii2-xui/master/LICENSE
  * create: 2015/1/23
- * update: 2016/8/7
+ * update: 2016/11/4
  * since: 0.0.1
  */
 
@@ -71,7 +71,7 @@ class Datetimepicker extends Widget {
 			$js .= ",'endDate':$this->endDate";
 		}
 		$js .= "});";
-		$view->registerJs($js);
+		$view->registerJs($js, 3);
 	}
 
 	public function run() {
