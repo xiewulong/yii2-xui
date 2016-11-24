@@ -5,6 +5,9 @@
  * version: 0.0.1
  */
 
+// styles
+import '../scss/FullscreenBackground.scss';
+
 (($, undefined) => {
 
 	if(!$('.J-x-fullscreen-bg').length) return;

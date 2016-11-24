@@ -5,6 +5,9 @@
  * version: 0.0.2
  */
 
+// styles
+import '../scss/Admin.scss';
+
 // csrf
 (($, document, undefined) => {
 	let param	= $('meta[name=csrf-param]').attr('content'),
@@ -249,6 +252,81 @@
 			$.alert('最多只能添加' + max + '张图片', 3);
 
 			return false;
+		}
+	}).on('mousedown', '.J-admin-attachment.admin-attachment-drag', function(e) {
+		let index, _index,
+			_this	= this,
+			$this	= $(this).addClass('admin-attachment-dragging'),
+			$items	= $this.parent().find('.admin-attachment-drag'),
+			start	= {x: e.clientX, y: e.clientY},
+			dis		= {x: 0, y: 0},
+			offsets	= [];
+
+		$items.each(function(i) {
+			offsets.push({
+				left: this.offsetLeft,
+				top: this.offsetTop,
+			});
+
+			if(this === _this) {
+				index = _index = i;
+			}
+		});
+
+		document.onmousemove = function(e) {
+			e.preventDefault();
+
+			let __index, _dis;
+
+			dis = {x: e.clientX - start.x, y: e.clientY - start.y};
+
+			$this.css({top: dis.y, left: dis.x});
+
+			$items.each(function(i) {
+				let disX	= Math.abs(offsets[i].left - _this.offsetLeft),
+					disY	= Math.abs(offsets[i].top - _this.offsetTop),
+					__dis	= Math.pow((disX * disX + disY * disY), .5);
+
+				if(__index === undefined || __dis < _dis) {
+					_dis = __dis;
+					__index = i;
+				}
+			});
+
+			$items.each(function(i) {
+				if(i == index) return;
+
+				let _i;
+
+				if(__index < index && i >= __index && i < index) {
+					_i = i + 1;
+				} else if(__index > index && i > index && i <= __index) {
+					_i = i - 1;
+				} else {
+					_i = i;
+				}
+
+				$(this).css({top: offsets[_i].top - offsets[i].top, left: offsets[_i].left - offsets[i].left});
+			});
+
+			_index = __index;
+		};
+
+		document.onmouseup = function() {
+			if(_index != index) {
+				let $siblings = $items.not($this).addClass('admin-attachment-dragging').css({top: 0, left: 0});
+				$this[_index < index ? 'insertBefore' : 'insertAfter']($items.eq(_index)).css({top: dis.y + (offsets[index].top - offsets[_index].top), left: dis.x + (offsets[index].left - offsets[_index].left)});
+				setTimeout(() => {
+					$siblings.removeClass('admin-attachment-dragging');
+				}, 6);
+			}
+
+			$this.removeClass('admin-attachment-dragging');
+			setTimeout(() => {
+				$this.css({top: 0, left: 0});
+			}, 6);
+
+			document.onmousemove = document.onmouseup = null;
 		}
 	});
 

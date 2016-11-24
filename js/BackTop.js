@@ -5,6 +5,9 @@
  * version: 0.0.1
  */
 
+// styles
+import '../scss/BackTop.scss';
+
 (($, window, document, undefined) => {
 	let _backTop;
 

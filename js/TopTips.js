@@ -5,6 +5,9 @@
  * version: 0.0.1
  */
 
+// styles
+import '../scss/TopTips.scss';
+
 (($, window, undefined) => {
 	let _run,
 		types = {

@@ -211,7 +211,9 @@ body{font-family:'\5FAE\8F6F\96C5\9ED1',microsoft yahei,'helvetica neue',helveti
 .admin-attachment-name a{z-index:1;position:absolute;left:0;top:0;right:0;bottom:0;}
 .admin-attachment-name p{overflow:hidden;margin:0;padding:0;position:relative;z-index:3;background-color:#fff;}
 .admin-attachment-name i{position:relative;left:auto;top:auto;right:auto;bottom:auto;float:left;padding-right:10px;background-color:#fff;}
-.admin-attachments{margin:0 10px 5px 0;float:left;}
+.admin-attachments{margin:0 10px 5px 0;float:left;cursor:move;}
+.admin-attachment-drag{transition:all .2s ease-out;z-index:1;}
+.admin-attachment-dragging{transition:none;z-index:2;}
 
 /* admin-image-limit */
 .admin-image-limit{max-width:100%;}
