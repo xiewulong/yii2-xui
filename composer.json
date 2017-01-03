@@ -26,6 +26,8 @@
 		"bower-asset/smalot-bootstrap-datetimepicker": "*",
 		"bower-asset/weui": "*",
 		"npm-asset/vue": "*",
+		"npm-asset/vue-router": "*",
+		"npm-asset/vuex": "*",
 		"tinymce/tinymce": "*",
 		"xiewulong/jqueryx": "*",
 		"xiewulong/samples": "*"
