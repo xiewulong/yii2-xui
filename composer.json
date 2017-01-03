@@ -25,6 +25,7 @@
 		"bower-asset/respond-minmax": "*",
 		"bower-asset/smalot-bootstrap-datetimepicker": "*",
 		"bower-asset/weui": "*",
+		"npm-asset/axios": "*",
 		"npm-asset/vue": "*",
 		"npm-asset/vue-router": "*",
 		"npm-asset/vuex": "*",
