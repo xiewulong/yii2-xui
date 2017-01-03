@@ -25,16 +25,18 @@
 		"bower-asset/respond-minmax": "*",
 		"bower-asset/smalot-bootstrap-datetimepicker": "*",
 		"bower-asset/weui": "*",
+		"npm-asset/vue": "*",
 		"tinymce/tinymce": "*",
 		"xiewulong/jqueryx": "*",
 		"xiewulong/samples": "*"
 	},
-	"autoload": {
-		"psr-4": {"yii\\xui\\": ""}
-	},
 	"extra": {
 		"asset-installer-paths": {
-			"bower-asset-library": "vendor/bower"
+			"bower-asset-library": "vendor/bower",
+			"npm-asset-library": "vendor/npm"
 		}
+	},
+	"autoload": {
+		"psr-4": {"yii\\xui\\": ""}
 	}
 }
