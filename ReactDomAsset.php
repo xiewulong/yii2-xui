@@ -16,11 +16,7 @@ use yii\components\AssetBundle;
 
 class ReactDomAsset extends AssetBundle {
 
-	public $sourcePath = '@npm/react';
-
-	public $depends = [
-		'yii\xui\ReactAsset',
-	];
+	public $sourcePath = '@bower/react';
 
 	public function init() {
 		parent::init();

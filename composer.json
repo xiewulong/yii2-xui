@@ -17,12 +17,12 @@
 	],
 	"require": {
 		"yiisoft/yii2": "*",
+		"bower-asset/react": "*",
 		"npm-asset/axios": "*",
 		"npm-asset/bootstrap": ">=4.0.0-alpha.5",
 		"npm-asset/font-awesome": "*",
 		"npm-asset/html5shiv": "*",
 		"npm-asset/jquery": "*",
-		"npm-asset/react": "*",
 		"npm-asset/respond-minmax": "*",
 		"npm-asset/smalot-bootstrap-datetimepicker": "*",
 		"npm-asset/vue": "*",
