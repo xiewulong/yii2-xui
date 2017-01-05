@@ -5,7 +5,7 @@
  * https://github.com/xiewulong/yii2-xui
  * https://raw.githubusercontent.com/xiewulong/yii2-xui/master/LICENSE
  * create: 2016/10/17
- * update: 2017/1/5
+ * update: 2017/01/05
  * since: 0.0.1
  */
 
@@ -16,7 +16,7 @@ use yii\components\AssetBundle;
 
 class WeuiAsset extends AssetBundle {
 
-	public $sourcePath = '@npm/weui/dist/style';
+	public $sourcePath = '@bower/weui/dist/style';
 
 	public function init() {
 		parent::init();

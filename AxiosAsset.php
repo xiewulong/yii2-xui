@@ -5,7 +5,7 @@
  * https://github.com/xiewulong/yii2-xui
  * https://raw.githubusercontent.com/xiewulong/yii2-xui/master/LICENSE
  * create: 2017/1/3
- * update: 2017/1/5
+ * update: 2017/1/6
  * since: 0.0.1
  */
 
@@ -16,7 +16,7 @@ use yii\components\AssetBundle;
 
 class AxiosAsset extends AssetBundle {
 
-	public $sourcePath = '@npm/axios/dist';
+	public $sourcePath = '@bower/axios/dist';
 
 	public function init() {
 		parent::init();

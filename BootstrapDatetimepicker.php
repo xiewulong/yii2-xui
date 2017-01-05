@@ -1,11 +1,11 @@
 <?php
 /*!
- * yii - widget - date time picker
+ * yii - widget - bootstrap date and time picker
  * xiewulong <xiewulong@vip.qq.com>
  * https://github.com/xiewulong/yii2-xui
  * https://raw.githubusercontent.com/xiewulong/yii2-xui/master/LICENSE
  * create: 2015/1/23
- * update: 2016/11/4
+ * update: 2017/1/6
  * since: 0.0.1
  */
 
@@ -15,7 +15,7 @@ use Yii;
 use yii\base\Widget;
 use yii\helpers\Html;
 
-class Datetimepicker extends Widget {
+class BootstrapDatetimepicker extends Widget {
 
 	public $name;
 
@@ -62,7 +62,7 @@ class Datetimepicker extends Widget {
 
 		$id = $this->getRandomId();
 		$view = $this->getView();
-		DatetimepickerAsset::register($view)->addLanguage($this->language);
+		BootstrapDatetimepickerAsset::register($view)->addLanguage($this->language);
 		$js = "$('#$id').datetimepicker({'format':'$this->format','autoclose':$this->autoclose,'todayBtn':$this->todayBtn,'minuteStep':$this->minuteStep,'pickerPosition':'$this->pickerPosition','todayHighlight':$this->todayHighlight,'language':'$this->language','startView':$this->startView,'minView':$this->minView,'maxView':$this->maxView";
 		if($this->startDate) {
 			$js .= ",'startDate':$this->startDate";

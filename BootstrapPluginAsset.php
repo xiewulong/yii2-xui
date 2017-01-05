@@ -16,7 +16,7 @@ use yii\components\AssetBundle;
 
 class BootstrapPluginAsset extends AssetBundle {
 
-	public $sourcePath = '@npm/bootstrap/dist';
+	public $sourcePath = '@bower/bootstrap/dist';
 
 	public $depends = [
 		'yii\xui\BootstrapCssAsset',

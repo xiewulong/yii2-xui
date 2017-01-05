@@ -16,7 +16,7 @@ use yii\components\AssetBundle;
 
 class TetherAsset extends AssetBundle {
 
-	public $sourcePath = '@npm/tether/dist';
+	public $sourcePath = '@bower/tether/dist';
 
 	public function init() {
 		parent::init();

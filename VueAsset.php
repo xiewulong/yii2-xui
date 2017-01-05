@@ -5,7 +5,7 @@
  * https://github.com/xiewulong/yii2-xui
  * https://raw.githubusercontent.com/xiewulong/yii2-xui/master/LICENSE
  * create: 2017/01/03
- * update: 2017/01/03
+ * update: 2017/01/06
  * since: 0.0.1
  */
 
@@ -16,7 +16,7 @@ use yii\components\AssetBundle;
 
 class VueAsset extends AssetBundle {
 
-	public $sourcePath = '@npm/vue/dist';
+	public $sourcePath = '@bower/vue/dist';
 
 	public function init() {
 		parent::init();
