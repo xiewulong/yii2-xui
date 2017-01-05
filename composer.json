@@ -25,6 +25,7 @@
 		"npm-asset/jquery": "*",
 		"npm-asset/respond-minmax": "*",
 		"npm-asset/smalot-bootstrap-datetimepicker": "*",
+		"npm-asset/ueditor": "*",
 		"npm-asset/vue": "*",
 		"npm-asset/vue-router": "*",
 		"npm-asset/vuex": "*",
