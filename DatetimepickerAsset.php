@@ -5,7 +5,7 @@
  * https://github.com/xiewulong/yii2-xui
  * https://raw.githubusercontent.com/xiewulong/yii2-xui/master/LICENSE
  * create: 2015/1/23
- * update: 2016/9/5
+ * update: 2017/1/5
  * since: 0.0.1
  */
 
@@ -16,7 +16,7 @@ use yii\components\AssetBundle;
 
 class DatetimepickerAsset extends AssetBundle {
 
-	public $sourcePath = '@bower/smalot-bootstrap-datetimepicker';
+	public $sourcePath = '@npm/smalot-bootstrap-datetimepicker';
 
 	public $depends = [
 		'yii\xui\BootstrapAsset',

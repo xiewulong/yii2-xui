@@ -5,7 +5,7 @@
  * https://github.com/xiewulong/yii2-xui
  * https://raw.githubusercontent.com/xiewulong/yii2-xui/master/LICENSE
  * create: 2017/01/03
- * update: 2017/01/03
+ * update: 2017/01/05
  * since: 0.0.1
  */
 

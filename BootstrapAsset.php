@@ -16,17 +16,9 @@ use yii\components\AssetBundle;
 
 class BootstrapAsset extends AssetBundle {
 
-	public $sourcePath = '@bower/bootstrap/dist';
-
 	public $depends = [
-		'yii\xui\JqueryAsset',
+		'yii\xui\BootstrapCssAsset',
+		'yii\xui\BootstrapPluginAsset',
 	];
-
-	public function init() {
-		parent::init();
-
-		$this->css[] = 'css/bootstrap' . $this->minimal . '.css';
-		$this->js[] = 'js/bootstrap' . $this->minimal . '.js';
-	}
 
 }

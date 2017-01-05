@@ -5,7 +5,7 @@
  * https://github.com/xiewulong/yii2-xui
  * https://raw.githubusercontent.com/xiewulong/yii2-xui/master/LICENSE
  * create: 2015/9/22
- * update: 2016/9/5
+ * update: 2017/1/5
  * since: 0.0.1
  */
 
@@ -16,7 +16,7 @@ use yii\components\AssetBundle;
 
 class FontAwesomeAsset extends AssetBundle {
 
-	public $sourcePath = '@bower/font-awesome';
+	public $sourcePath = '@npm/font-awesome';
 
 	public function init() {
 		parent::init();

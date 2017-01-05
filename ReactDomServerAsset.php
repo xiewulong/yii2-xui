@@ -5,7 +5,7 @@
  * https://github.com/xiewulong/yii2-xui
  * https://raw.githubusercontent.com/xiewulong/yii2-xui/master/LICENSE
  * create: 2016/10/14
- * update: 2016/10/30
+ * update: 2017/1/5
  * since: 0.0.1
  */
 
@@ -16,11 +16,11 @@ use yii\components\AssetBundle;
 
 class ReactDomServerAsset extends AssetBundle {
 
-	public $sourcePath = '@bower/react';
+	public $sourcePath = '@npm/react';
 
-	// public $depends = [
-	// 	'yii\xui\ReactAsset',
-	// ];
+	public $depends = [
+		'yii\xui\ReactAsset',
+	];
 
 	public function init() {
 		parent::init();
