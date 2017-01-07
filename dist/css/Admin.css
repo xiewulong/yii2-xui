@@ -142,8 +142,7 @@ body {
 .admin-header .menu ul li .text i {
   margin-right: 5px; }
 
-.admin-header .menu ul li .text i.glyphicon-triangle-bottom {
-  font-size: 10px;
+.admin-header .menu ul li .text i.fa-caret-down {
   margin: 0 0 0 5px;
   -webkit-transform: scale(0.7);
   transform: scale(0.7);
@@ -165,7 +164,8 @@ body {
   line-height: 50px;
   padding: 0 20px;
   border-right: 1px solid #008fbf;
-  cursor: pointer; }
+  cursor: pointer;
+  font-size: 14px; }
 
 .admin-header .menu ul.main > li > .text:hover,
 .admin-header .menu ul.main > li.active > .text,
@@ -195,8 +195,8 @@ body {
   color: #333;
   background-color: #fff; }
 
-.admin-header .menu ul.main > li.dropdown-hover:hover > .text i.glyphicon-triangle-bottom,
-.admin-header .menu ul.main > li.dropdown-open > .text i.glyphicon-triangle-bottom {
+.admin-header .menu ul.main > li.dropdown-hover:hover > .text i.fa-caret-down,
+.admin-header .menu ul.main > li.dropdown-open > .text i.fa-caret-down {
   -webkit-transform: scale(0.7) rotate(-180deg);
           transform: scale(0.7) rotate(-180deg); }
 
@@ -256,7 +256,7 @@ body {
   -webkit-transition: width .2s ease-out;
   transition: width .2s ease-out; }
 
-.admin-sidebar .sidebar-control .glyphicon {
+.admin-sidebar .sidebar-control .fa {
   -webkit-transform: rotate(-90deg);
           transform: rotate(-90deg);
   -webkit-transition: -webkit-transform .2s ease-out;
@@ -305,7 +305,7 @@ body {
   -webkit-transition: all .2s ease-out;
   transition: all .2s ease-out; }
 
-.admin-sidebar ul.sidebar > li > .text em i.glyphicon-triangle-bottom {
+.admin-sidebar ul.sidebar > li > .text em i.fa-caret-down {
   font-size: 10px;
   -webkit-transform: scale(0.7);
           transform: scale(0.7); }
@@ -314,7 +314,7 @@ body {
   background-color: #37424f;
   border-bottom: 1px solid #414d5c; }
 
-.admin-sidebar ul.sidebar > li.fold > .text em i.glyphicon-triangle-bottom {
+.admin-sidebar ul.sidebar > li.fold > .text em i.fa-caret-down {
   -webkit-transform: scale(0.7) rotate(-90deg);
           transform: scale(0.7) rotate(-90deg); }
 
@@ -349,7 +349,7 @@ body {
 .admin-sidebar-fold .sidebar-control {
   width: 50px; }
 
-.admin-sidebar-fold .sidebar-control .glyphicon {
+.admin-sidebar-fold .sidebar-control .fa {
   -webkit-transform: rotate(0);
           transform: rotate(0); }
 
@@ -630,13 +630,13 @@ body {
 
 /* admin-loading */
 .admin-loading {
-  font-family: 'Glyphicons Halflings';
+  font-family: 'FontAwesome';
   position: relative;
   overflow: hidden;
   min-height: 160px; }
 
 .admin-loading:before {
-  content: '\E031';
+  content: '\F110';
   color: #888;
   font-size: 28px;
   width: 40px;
@@ -746,5 +746,3 @@ body {
       .admin-tags-like-list li.selected {
         background-color: #09c;
         color: #fff; }
-
-/*# sourceMappingURL=Admin.css.map*/

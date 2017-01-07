@@ -26,7 +26,7 @@ use yii\helpers\Html;
 <!-- begin admin-sidebar -->
 <div class="admin-sidebar J-admin-sidebar">
 	<div class="sidebar-scroller">
-		<div class="sidebar-control"><?= Html::tag('i', null, ['class' => 'glyphicon glyphicon-menu-hamburger']) ?></div>
+		<div class="sidebar-control"><?= Html::tag('i', null, ['class' => 'fa fa-navicon']) ?></div>
 		<?= $sidebar ?>
 	</div>
 </div>

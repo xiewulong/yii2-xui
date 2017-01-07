@@ -85,13 +85,13 @@ class Admin extends Widget {
 
 				$text = $item['text'];
 				if($type == 'sidebar' && isset($item['children'])) {
-					$text = Html::tag('em', Html::tag('i', null, ['class' => 'glyphicon glyphicon-triangle-bottom'])) . $text;
+					$text = Html::tag('em', Html::tag('i', null, ['class' => 'fa fa-caret-down'])) . $text;
 				}  else if(isset($item['icon'])) {
 					$icon = Html::tag('i', null, ['class' => $item['icon']]);
 					$text = ($sidebar ? Html::tag('em', $icon) : $icon) . $text;
 				}
 				if(isset($item['dropdown']) || isset($item['dropdown-mixed'])) {
-					$text .= Html::tag('i', null, ['class' => 'glyphicon glyphicon-triangle-bottom']);
+					$text .= Html::tag('i', null, ['class' => 'fa fa-caret-down']);
 				}
 
 				$options = isset($item['options']) ? $item['options'] : [];
