@@ -22,7 +22,7 @@
 		"bower-asset/smalot-bootstrap-datetimepicker": "*",
 		"bower-asset/font-awesome": "*",
 		"bower-asset/jquery": "*",
-		"bower-asset/jquery-1.11.1": "*",
+		"bower-asset/jquery-1.11.1": "<2.0.0",
 		"bower-asset/react": "*",
 		"bower-asset/tether": "*",
 		"bower-asset/vue": "*",
