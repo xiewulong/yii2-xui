@@ -18,7 +18,7 @@
 	"require": {
 		"yiisoft/yii2": "*",
 		"bower-asset/axios": "*",
-		"bower-asset/bootstrap": "v4.0.0-alpha.5",
+		"bower-asset/bootstrap": "*",
 		"bower-asset/smalot-bootstrap-datetimepicker": "*",
 		"bower-asset/font-awesome": "*",
 		"bower-asset/jquery": "*",
