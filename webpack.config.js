@@ -15,8 +15,6 @@ const MIN = PROD ? '.min' : '';
 let webpack = require('webpack');
 let webpackExtractTextPlugin = require('extract-text-webpack-plugin');
 let webpackConfig = {
-	devtool: PROD ? '#source-map' : '#eval-source-map',
-
 	entry: {
 		Admin: PATH.join(BASE_PATH, 'js', 'Admin'),
 		BackTop: PATH.join(BASE_PATH, 'js', 'BackTop'),
